@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #08080c;
+  --color-foreground: #e8e8ec;
+  --color-cyan: #00e5ff;
+  --color-red-accent: #ff3547;
+  --color-gold: #ffd600;
+  --color-purple: #a855f7;
+  --color-surface: #111118;
+  --color-surface-light: #1a1a24;
+  --color-border: #2a2a3a;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Barlow", sans-serif;
+  --font-body-condensed: "Barlow Condensed", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Speed bar animation */
+@keyframes grow-bar {
+  from { width: 0%; }
+  to { width: var(--bar-width); }
+}
+
+.speed-bar {
+  animation: grow-bar 0.8s ease-out forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Staggered fade-in */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-row {
+  opacity: 0;
+  animation: fade-in-up 0.4s ease-out forwards;
+  animation-delay: var(--row-delay, 0ms);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111118;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a3a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a4a;
+}

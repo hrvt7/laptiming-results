@@ -1,0 +1,2738 @@
+[
+  {
+    "pos": 1,
+    "car": "Go-Kart RC",
+    "driver": "Jani",
+    "best": "0:42.200",
+    "total": "1:19.937",
+    "bestMs": 42200
+  },
+  {
+    "pos": 2,
+    "car": "Formula Student",
+    "driver": "",
+    "best": "0:42.623",
+    "total": "1:21.688",
+    "bestMs": 42623
+  },
+  {
+    "pos": 3,
+    "car": "Skoda Fabia R5 (3)",
+    "driver": "Csabi",
+    "best": "0:43.182",
+    "total": "1:22.633",
+    "bestMs": 43182
+  },
+  {
+    "pos": 4,
+    "car": "Subaru WRC újabb",
+    "driver": "?",
+    "best": "0:43.316",
+    "total": "1:22.345",
+    "bestMs": 43316
+  },
+  {
+    "pos": 5,
+    "car": "Subaru WRC régebbi",
+    "driver": "?",
+    "best": "0:43.505",
+    "total": "1:22.386",
+    "bestMs": 43505
+  },
+  {
+    "pos": 6,
+    "car": "Hyundai i30 R5",
+    "driver": "",
+    "best": "0:43.936",
+    "total": "1:23.413",
+    "bestMs": 43936
+  },
+  {
+    "pos": 7,
+    "car": "Skoda Fabia R5 (2)",
+    "driver": "Csabi",
+    "best": "0:44.048",
+    "total": "",
+    "bestMs": 44048
+  },
+  {
+    "pos": 8,
+    "car": "Hyundai i20 R5",
+    "driver": "Csabi",
+    "best": "0:44.303",
+    "total": "",
+    "bestMs": 44303
+  },
+  {
+    "pos": 9,
+    "car": "VW Polo RX Supercar",
+    "driver": "Jani",
+    "best": "0:44.677",
+    "total": "",
+    "bestMs": 44677
+  },
+  {
+    "pos": 10,
+    "car": "Formula Renault 2.0",
+    "driver": "",
+    "best": "0:44.855",
+    "total": "1:23.865",
+    "bestMs": 44855
+  },
+  {
+    "pos": 11,
+    "car": "Renault Twingo RX S1600",
+    "driver": "Jani",
+    "best": "0:44.981",
+    "total": "",
+    "bestMs": 44981
+  },
+  {
+    "pos": 12,
+    "car": "Mercedes GTC",
+    "driver": "Csabi",
+    "best": "0:45.195",
+    "total": "1:25.718",
+    "bestMs": 45195
+  },
+  {
+    "pos": 13,
+    "car": "BMW M5 Competition",
+    "driver": "Jani",
+    "best": "0:45.357",
+    "total": "1:26.198",
+    "bestMs": 45357
+  },
+  {
+    "pos": 14,
+    "car": "Skoda Fabia S1600",
+    "driver": "Jani",
+    "best": "0:45.415",
+    "total": "1:25.542",
+    "bestMs": 45415
+  },
+  {
+    "pos": 15,
+    "car": "Skoda Fabia 1600 RX",
+    "driver": "Jani",
+    "best": "0:45.438",
+    "total": "",
+    "bestMs": 45438
+  },
+  {
+    "pos": 16,
+    "car": "Toyota GT86 GRMN Versenyautó",
+    "driver": "",
+    "best": "0:45.585",
+    "total": "1:25.800",
+    "bestMs": 45585
+  },
+  {
+    "pos": 17,
+    "car": "Monster Kart",
+    "driver": "Csabi",
+    "best": "0:45.656",
+    "total": "",
+    "bestMs": 45656
+  },
+  {
+    "pos": 18,
+    "car": "Porsche 911 Cabrio GTS",
+    "driver": "Csabi",
+    "best": "0:45.744",
+    "total": "",
+    "bestMs": 45744
+  },
+  {
+    "pos": 19,
+    "car": "VW Golf Tuning",
+    "driver": "Csabi",
+    "best": "0:45.777",
+    "total": "1:27.142",
+    "bestMs": 45777
+  },
+  {
+    "pos": 20,
+    "car": "Skoda Fabia R5",
+    "driver": "Csabi",
+    "best": "0:45.969",
+    "total": "",
+    "bestMs": 45969
+  },
+  {
+    "pos": 21,
+    "car": "Datsun 260Z Hangyász (VQ35DE swap)",
+    "driver": "Csabi",
+    "best": "0:46.123",
+    "total": "",
+    "bestMs": 46123
+  },
+  {
+    "pos": 22,
+    "car": "BMW M5 2018",
+    "driver": "Csabi",
+    "best": "0:46.245",
+    "total": "",
+    "bestMs": 46245
+  },
+  {
+    "pos": 23,
+    "car": "Mitsubishi Lancer EVO IX",
+    "driver": "",
+    "best": "0:46.311",
+    "total": "1:27.408",
+    "bestMs": 46311
+  },
+  {
+    "pos": 24,
+    "car": "Audi R8 V10 Spyder",
+    "driver": "Jani",
+    "best": "0:46.450",
+    "total": "",
+    "bestMs": 46450
+  },
+  {
+    "pos": 25,
+    "car": "Peugeot 208 R2",
+    "driver": "Jani",
+    "best": "0:46.559",
+    "total": "",
+    "bestMs": 46559
+  },
+  {
+    "pos": 26,
+    "car": "Seat Leon ST Cupra (tuning)",
+    "driver": "Jani",
+    "best": "0:46.594",
+    "total": "",
+    "bestMs": 46594
+  },
+  {
+    "pos": 27,
+    "car": "Audi RS5",
+    "driver": "Csabi",
+    "best": "0:46.654",
+    "total": "",
+    "bestMs": 46654
+  },
+  {
+    "pos": 28,
+    "car": "Alfa Romeo Giulia QV",
+    "driver": "Csabi",
+    "best": "0:46.656",
+    "total": "",
+    "bestMs": 46656
+  },
+  {
+    "pos": 29,
+    "car": "Porsche Cayman GT4",
+    "driver": "Csabi",
+    "best": "0:46.666",
+    "total": "",
+    "bestMs": 46666
+  },
+  {
+    "pos": 30,
+    "car": "BMW M5 AC Schnitzer",
+    "driver": "Jani",
+    "best": "0:46.680",
+    "total": "1:28.150",
+    "bestMs": 46680
+  },
+  {
+    "pos": 31,
+    "car": "Suzuki Swift RX S1600",
+    "driver": "Jani",
+    "best": "0:46.702",
+    "total": "",
+    "bestMs": 46702
+  },
+  {
+    "pos": 32,
+    "car": "BMW M4",
+    "driver": "Csabi",
+    "best": "0:46.703",
+    "total": "1:28.634",
+    "bestMs": 46703
+  },
+  {
+    "pos": 33,
+    "car": "Honda Civic Type-R A7",
+    "driver": "Jani",
+    "best": "0:46.710",
+    "total": "",
+    "bestMs": 46710
+  },
+  {
+    "pos": 34,
+    "car": "BMW M5 Competition",
+    "driver": "Csabi",
+    "best": "0:46.732",
+    "total": "1:28.878",
+    "bestMs": 46732
+  },
+  {
+    "pos": 35,
+    "car": "Nissan GT-R 2018",
+    "driver": "Csabi",
+    "best": "0:46.830",
+    "total": "",
+    "bestMs": 46830
+  },
+  {
+    "pos": 36,
+    "car": "Audi TT RS",
+    "driver": "Jani",
+    "best": "0:46.899",
+    "total": "",
+    "bestMs": 46899
+  },
+  {
+    "pos": 37,
+    "car": "Opel Adam R2",
+    "driver": "Jani",
+    "best": "0:46.969",
+    "total": "",
+    "bestMs": 46969
+  },
+  {
+    "pos": 38,
+    "car": "Peugeot 208 RC",
+    "driver": "Csabi",
+    "best": "0:47.057",
+    "total": "1:28.536",
+    "bestMs": 47057
+  },
+  {
+    "pos": 39,
+    "car": "Ferrari 458",
+    "driver": "",
+    "best": "0:47.078",
+    "total": "1:29.103",
+    "bestMs": 47078
+  },
+  {
+    "pos": 40,
+    "car": "Tesla Model 3",
+    "driver": "?",
+    "best": "0:47.088",
+    "total": "1:29.684",
+    "bestMs": 47088
+  },
+  {
+    "pos": 41,
+    "car": "Peugeot RCZ R",
+    "driver": "Jani",
+    "best": "0:47.092",
+    "total": "",
+    "bestMs": 47092
+  },
+  {
+    "pos": 42,
+    "car": "BMW 3 Compact tuning",
+    "driver": "Csabi",
+    "best": "0:47.186",
+    "total": "",
+    "bestMs": 47186
+  },
+  {
+    "pos": 43,
+    "car": "Ford Focus RS",
+    "driver": "Csabi",
+    "best": "0:47.232",
+    "total": "",
+    "bestMs": 47232
+  },
+  {
+    "pos": 44,
+    "car": "Subaru WRX STi (tuning)",
+    "driver": "Jani",
+    "best": "0:47.253",
+    "total": "",
+    "bestMs": 47253
+  },
+  {
+    "pos": 45,
+    "car": "BMW M2 Competition",
+    "driver": "?",
+    "best": "0:47.292",
+    "total": "1:29.199",
+    "bestMs": 47292
+  },
+  {
+    "pos": 46,
+    "car": "Honda Civic Type-R 2017",
+    "driver": "Jani",
+    "best": "0:47.292",
+    "total": "",
+    "bestMs": 47292
+  },
+  {
+    "pos": 47,
+    "car": "BMW Z4",
+    "driver": "Jani",
+    "best": "0:47.321",
+    "total": "1:29.657",
+    "bestMs": 47321
+  },
+  {
+    "pos": 48,
+    "car": "BMW M3 2014",
+    "driver": "Jani",
+    "best": "0:47.324",
+    "total": "",
+    "bestMs": 47324
+  },
+  {
+    "pos": 49,
+    "car": "Ford Focus RS+ (meleg időben)",
+    "driver": "Csabi",
+    "best": "0:47.334",
+    "total": "",
+    "bestMs": 47334
+  },
+  {
+    "pos": 50,
+    "car": "Audi RS3 2019",
+    "driver": "",
+    "best": "0:47.426",
+    "total": "1:30.296",
+    "bestMs": 47426
+  },
+  {
+    "pos": 51,
+    "car": "Renault Megane RS Trophy",
+    "driver": "Jani",
+    "best": "0:47.440",
+    "total": "1:28.929",
+    "bestMs": 47440
+  },
+  {
+    "pos": 52,
+    "car": "BMW M4 Cabrio",
+    "driver": "Jani",
+    "best": "0:47.552",
+    "total": "",
+    "bestMs": 47552
+  },
+  {
+    "pos": 53,
+    "car": "Mazda MX-5 NB 1.8 Turbo",
+    "driver": "Jani",
+    "best": "0:47.556",
+    "total": "1:30.009",
+    "bestMs": 47556
+  },
+  {
+    "pos": 54,
+    "car": "Mercedes C43 MG (II)",
+    "driver": "Jani",
+    "best": "0:47.573",
+    "total": "",
+    "bestMs": 47573
+  },
+  {
+    "pos": 55,
+    "car": "Mercedes CLS AMG",
+    "driver": "Jani",
+    "best": "0:47.629",
+    "total": "1:30.154",
+    "bestMs": 47629
+  },
+  {
+    "pos": 56,
+    "car": "BMW M6",
+    "driver": "Csabi",
+    "best": "0:47.650",
+    "total": "",
+    "bestMs": 47650
+  },
+  {
+    "pos": 57,
+    "car": "Mercedes CLS 63 AMG",
+    "driver": "",
+    "best": "0:47.736",
+    "total": "1:30.642",
+    "bestMs": 47736
+  },
+  {
+    "pos": 58,
+    "car": "Nissan Skyline GT-R R33",
+    "driver": "Csabi",
+    "best": "0:47.743",
+    "total": "",
+    "bestMs": 47743
+  },
+  {
+    "pos": 59,
+    "car": "Audi S5 Sportback",
+    "driver": "Jani",
+    "best": "0:47.784",
+    "total": "",
+    "bestMs": 47784
+  },
+  {
+    "pos": 60,
+    "car": "Honda Civic Type-R 2017",
+    "driver": "Csabi",
+    "best": "0:47.850",
+    "total": "",
+    "bestMs": 47850
+  },
+  {
+    "pos": 61,
+    "car": "Opel Astra OPC",
+    "driver": "Jani",
+    "best": "0:47.884",
+    "total": "",
+    "bestMs": 47884
+  },
+  {
+    "pos": 62,
+    "car": "Ford Mustang GT 5.0 2018",
+    "driver": "Jani",
+    "best": "0:47.939",
+    "total": "",
+    "bestMs": 47939
+  },
+  {
+    "pos": 63,
+    "car": "Corvette C7",
+    "driver": "?",
+    "best": "0:48.054",
+    "total": "1:30.843",
+    "bestMs": 48054
+  },
+  {
+    "pos": 64,
+    "car": "Porsche Cayman S",
+    "driver": "Csabi",
+    "best": "0:48.059",
+    "total": "1:30.935",
+    "bestMs": 48059
+  },
+  {
+    "pos": 65,
+    "car": "Suzuki Swift 1.4 turbo",
+    "driver": "",
+    "best": "0:48.076",
+    "total": "1:30.416",
+    "bestMs": 48076
+  },
+  {
+    "pos": 66,
+    "car": "Corvette C6 Z06 (II)",
+    "driver": "Jani",
+    "best": "0:48.135",
+    "total": "",
+    "bestMs": 48135
+  },
+  {
+    "pos": 67,
+    "car": "BMW X6 M Nerpel Tuning",
+    "driver": "Csabi",
+    "best": "0:48.144",
+    "total": "",
+    "bestMs": 48144
+  },
+  {
+    "pos": 68,
+    "car": "Mercedes E63 AMG",
+    "driver": "",
+    "best": "0:48.180",
+    "total": "1:31.331",
+    "bestMs": 48180
+  },
+  {
+    "pos": 69,
+    "car": "BMW 3-series",
+    "driver": "Jani",
+    "best": "0:48.198",
+    "total": "1:31.498",
+    "bestMs": 48198
+  },
+  {
+    "pos": 70,
+    "car": "BMW M135i",
+    "driver": "Csabi",
+    "best": "0:48.231",
+    "total": "",
+    "bestMs": 48231
+  },
+  {
+    "pos": 71,
+    "car": "BFR BMW M3 E92",
+    "driver": "Jani",
+    "best": "0:48.241",
+    "total": "",
+    "bestMs": 48241
+  },
+  {
+    "pos": 72,
+    "car": "BMW i8 Spyder",
+    "driver": "Csabi",
+    "best": "0:48.271",
+    "total": "",
+    "bestMs": 48271
+  },
+  {
+    "pos": 73,
+    "car": "Audi RS3",
+    "driver": "",
+    "best": "0:48.313",
+    "total": "1:31.881",
+    "bestMs": 48313
+  },
+  {
+    "pos": 74,
+    "car": "Audi TT 2.0 TFSI",
+    "driver": "Jani",
+    "best": "0:48.327",
+    "total": "",
+    "bestMs": 48327
+  },
+  {
+    "pos": 75,
+    "car": "Lexus IS-F",
+    "driver": "Csabi",
+    "best": "0:48.337",
+    "total": "1:31.149",
+    "bestMs": 48337
+  },
+  {
+    "pos": 76,
+    "car": "Audi RS3 2012",
+    "driver": "",
+    "best": "0:48.381",
+    "total": "1:31.879",
+    "bestMs": 48381
+  },
+  {
+    "pos": 77,
+    "car": "Alfa GTV Historic raliautó",
+    "driver": "Jani",
+    "best": "0:48.386",
+    "total": "",
+    "bestMs": 48386
+  },
+  {
+    "pos": 78,
+    "car": "Mitsubishi EVO 10 DCT",
+    "driver": "Csabi",
+    "best": "0:48.397",
+    "total": "",
+    "bestMs": 48397
+  },
+  {
+    "pos": 79,
+    "car": "Alfa Romeo Stelvio QV",
+    "driver": "Jani",
+    "best": "0:48.400",
+    "total": "",
+    "bestMs": 48400
+  },
+  {
+    "pos": 80,
+    "car": "Chevrolet Corvette C6",
+    "driver": "Csabi",
+    "best": "0:48.404",
+    "total": "",
+    "bestMs": 48404
+  },
+  {
+    "pos": 81,
+    "car": "Mercedes-Benz C43 AMG",
+    "driver": "Csabi",
+    "best": "0:48.435",
+    "total": "",
+    "bestMs": 48435
+  },
+  {
+    "pos": 82,
+    "car": "Subaru Impreza WRX STI",
+    "driver": "Csabi",
+    "best": "0:48.447",
+    "total": "",
+    "bestMs": 48447
+  },
+  {
+    "pos": 83,
+    "car": "Nissan 350z tuning",
+    "driver": "",
+    "best": "0:48.513",
+    "total": "1:31.165",
+    "bestMs": 48513
+  },
+  {
+    "pos": 84,
+    "car": "Mitsubishi Lancer Evo 2 (tuning)",
+    "driver": "Jani",
+    "best": "0:48.551",
+    "total": "",
+    "bestMs": 48551
+  },
+  {
+    "pos": 85,
+    "car": "Volvo T (ezüst)",
+    "driver": "Jani",
+    "best": "0:48.560",
+    "total": "1:31.762",
+    "bestMs": 48560
+  },
+  {
+    "pos": 86,
+    "car": "Renault Megane RS EDC",
+    "driver": "Jani",
+    "best": "0:48.667",
+    "total": "",
+    "bestMs": 48667
+  },
+  {
+    "pos": 87,
+    "car": "Ford Mustang GT 5.0",
+    "driver": "Jani",
+    "best": "0:48.722",
+    "total": "",
+    "bestMs": 48722
+  },
+  {
+    "pos": 88,
+    "car": "Volkswagen Golf R",
+    "driver": "Jani",
+    "best": "0:48.731",
+    "total": "",
+    "bestMs": 48731
+  },
+  {
+    "pos": 89,
+    "car": "Renault Megane RS Laptiming",
+    "driver": "?",
+    "best": "0:48.736",
+    "total": "1:32.103",
+    "bestMs": 48736
+  },
+  {
+    "pos": 90,
+    "car": "Ford Focus ST",
+    "driver": "Csabi",
+    "best": "0:48.760",
+    "total": "",
+    "bestMs": 48760
+  },
+  {
+    "pos": 91,
+    "car": "Mazda MX-5 (drift)",
+    "driver": "Jani",
+    "best": "0:48.763",
+    "total": "",
+    "bestMs": 48763
+  },
+  {
+    "pos": 92,
+    "car": "Nissan 370z",
+    "driver": "Csabi",
+    "best": "0:48.774",
+    "total": "1:32.015",
+    "bestMs": 48774
+  },
+  {
+    "pos": 93,
+    "car": "Honda Civic Type-R 2015",
+    "driver": "Csabi",
+    "best": "0:48.776",
+    "total": "",
+    "bestMs": 48776
+  },
+  {
+    "pos": 94,
+    "car": "Lada VFTS Vizelli",
+    "driver": "Csabi",
+    "best": "0:48.793",
+    "total": "",
+    "bestMs": 48793
+  },
+  {
+    "pos": 95,
+    "car": "Opel Insignia GSI",
+    "driver": "Jani",
+    "best": "0:48.850",
+    "total": "",
+    "bestMs": 48850
+  },
+  {
+    "pos": 96,
+    "car": "Hyundai i30N 275LE",
+    "driver": "Jani",
+    "best": "0:48.869",
+    "total": "",
+    "bestMs": 48869
+  },
+  {
+    "pos": 97,
+    "car": "Suzuki Swift Cup 1.6",
+    "driver": "Jani",
+    "best": "0:48.881",
+    "total": "",
+    "bestMs": 48881
+  },
+  {
+    "pos": 98,
+    "car": "BMW X5 M",
+    "driver": "Jani",
+    "best": "0:48.911",
+    "total": "",
+    "bestMs": 48911
+  },
+  {
+    "pos": 99,
+    "car": "BMW 750d",
+    "driver": "Jani",
+    "best": "0:49.013",
+    "total": "",
+    "bestMs": 49013
+  },
+  {
+    "pos": 100,
+    "car": "CRG Rotax Max gokart",
+    "driver": "Csabi",
+    "best": "0:49.035",
+    "total": "",
+    "bestMs": 49035
+  },
+  {
+    "pos": 101,
+    "car": "Mazda MX-5 turbo",
+    "driver": "Csabi",
+    "best": "0:49.106",
+    "total": "1:32.972",
+    "bestMs": 49106
+  },
+  {
+    "pos": 102,
+    "car": "Renault Megane RS",
+    "driver": "Csabi",
+    "best": "0:49.108",
+    "total": "",
+    "bestMs": 49108
+  },
+  {
+    "pos": 103,
+    "car": "Mercedes-Benz CLS 450",
+    "driver": "Jani",
+    "best": "0:49.109",
+    "total": "",
+    "bestMs": 49109
+  },
+  {
+    "pos": 104,
+    "car": "Cupra",
+    "driver": "Jani",
+    "best": "0:49.115",
+    "total": "1:32.834",
+    "bestMs": 49115
+  },
+  {
+    "pos": 105,
+    "car": "Alfa Romeo 4C",
+    "driver": "Csabi",
+    "best": "0:49.131",
+    "total": "",
+    "bestMs": 49131
+  },
+  {
+    "pos": 106,
+    "car": "Mitsubishi Lancer EVO 6",
+    "driver": "Jani",
+    "best": "0:49.142",
+    "total": "",
+    "bestMs": 49142
+  },
+  {
+    "pos": 107,
+    "car": "Hyundai i30N",
+    "driver": "Jani",
+    "best": "0:49.158",
+    "total": "",
+    "bestMs": 49158
+  },
+  {
+    "pos": 108,
+    "car": "Audi RS4 4.2",
+    "driver": "Csabi",
+    "best": "0:49.159",
+    "total": "",
+    "bestMs": 49159
+  },
+  {
+    "pos": 109,
+    "car": "Audi S3 MTM",
+    "driver": "Jani",
+    "best": "0:49.170",
+    "total": "",
+    "bestMs": 49170
+  },
+  {
+    "pos": 110,
+    "car": "Mercedes CLS 55 AMG",
+    "driver": "?",
+    "best": "0:49.189",
+    "total": "1:33.059",
+    "bestMs": 49189
+  },
+  {
+    "pos": 111,
+    "car": "Subaru Impreza WRX STI (GC8)",
+    "driver": "Csabi",
+    "best": "0:49.199",
+    "total": "",
+    "bestMs": 49199
+  },
+  {
+    "pos": 112,
+    "car": "Mazda 6 MPS",
+    "driver": "Jani",
+    "best": "0:49.255",
+    "total": "",
+    "bestMs": 49255
+  },
+  {
+    "pos": 113,
+    "car": "Opel Insignia 2.0T (2)",
+    "driver": "Jani",
+    "best": "0:49.283",
+    "total": "",
+    "bestMs": 49283
+  },
+  {
+    "pos": 114,
+    "car": "Kia Stinger GT",
+    "driver": "Csabi",
+    "best": "0:49.307",
+    "total": "1:33.995",
+    "bestMs": 49307
+  },
+  {
+    "pos": 115,
+    "car": "BFR Renault Megane RS",
+    "driver": "Jani",
+    "best": "0:49.376",
+    "total": "",
+    "bestMs": 49376
+  },
+  {
+    "pos": 116,
+    "car": "Mitsubishi Colt Evo",
+    "driver": "Jani",
+    "best": "0:49.386",
+    "total": "",
+    "bestMs": 49386
+  },
+  {
+    "pos": 117,
+    "car": "Subaru Forester (tuning)",
+    "driver": "Csabi",
+    "best": "0:49.387",
+    "total": "1:33.497",
+    "bestMs": 49387
+  },
+  {
+    "pos": 118,
+    "car": "Renault Clio RS Trophy",
+    "driver": "Csabi",
+    "best": "0:49.408",
+    "total": "",
+    "bestMs": 49408
+  },
+  {
+    "pos": 119,
+    "car": "Opel Corsa OPC Nürburgring edition",
+    "driver": "Jani",
+    "best": "0:49.422",
+    "total": "",
+    "bestMs": 49422
+  },
+  {
+    "pos": 120,
+    "car": "BMW 640d",
+    "driver": "Csabi",
+    "best": "0:49.426",
+    "total": "",
+    "bestMs": 49426
+  },
+  {
+    "pos": 121,
+    "car": "BFR Lotus Elise",
+    "driver": "Csabi",
+    "best": "0:49.453",
+    "total": "",
+    "bestMs": 49453
+  },
+  {
+    "pos": 122,
+    "car": "MINI Cooper S",
+    "driver": "Csabi",
+    "best": "0:49.488",
+    "total": "",
+    "bestMs": 49488
+  },
+  {
+    "pos": 123,
+    "car": "Audi S1",
+    "driver": "Csabi",
+    "best": "0:49.495",
+    "total": "1:33.582",
+    "bestMs": 49495
+  },
+  {
+    "pos": 124,
+    "car": "Mazda MX-5 NB 1.8 szlalom",
+    "driver": "Csabi",
+    "best": "0:49.511",
+    "total": "",
+    "bestMs": 49511
+  },
+  {
+    "pos": 125,
+    "car": "Toyota Corolla AE86 Levin",
+    "driver": "Jani",
+    "best": "0:49.516",
+    "total": "",
+    "bestMs": 49516
+  },
+  {
+    "pos": 126,
+    "car": "Mercedes-Benz CLS 400d",
+    "driver": "Csabi",
+    "best": "0:49.565",
+    "total": "",
+    "bestMs": 49565
+  },
+  {
+    "pos": 127,
+    "car": "Chevy Camaro",
+    "driver": "Csabi",
+    "best": "0:49.567",
+    "total": "1:33.388",
+    "bestMs": 49567
+  },
+  {
+    "pos": 128,
+    "car": "Pontiac Trans Am",
+    "driver": "Jani",
+    "best": "0:49.595",
+    "total": "",
+    "bestMs": 49595
+  },
+  {
+    "pos": 129,
+    "car": "Skoda Octavia RS 2017",
+    "driver": "Csabi",
+    "best": "0:49.601",
+    "total": "",
+    "bestMs": 49601
+  },
+  {
+    "pos": 130,
+    "car": "Nissan 370z (slick)",
+    "driver": "Csabi",
+    "best": "0:49.628",
+    "total": "1:32.826",
+    "bestMs": 49628
+  },
+  {
+    "pos": 131,
+    "car": "Honda Civic Type-R (EP2)",
+    "driver": "Csabi",
+    "best": "0:49.636",
+    "total": "",
+    "bestMs": 49636
+  },
+  {
+    "pos": 132,
+    "car": "Porsche Cayenne",
+    "driver": "Csabi",
+    "best": "0:49.671",
+    "total": "1:33.652",
+    "bestMs": 49671
+  },
+  {
+    "pos": 133,
+    "car": "BMW M5 Lumma",
+    "driver": "Jani",
+    "best": "0:49.687",
+    "total": "",
+    "bestMs": 49687
+  },
+  {
+    "pos": 134,
+    "car": "Renault Megane RS 2012",
+    "driver": "Jani",
+    "best": "0:49.695",
+    "total": "",
+    "bestMs": 49695
+  },
+  {
+    "pos": 135,
+    "car": "Audi SQ7",
+    "driver": "Csabi",
+    "best": "0:49.714",
+    "total": "",
+    "bestMs": 49714
+  },
+  {
+    "pos": 136,
+    "car": "Toyota Corolla AE86 20v Blacktop",
+    "driver": "?",
+    "best": "0:49.753",
+    "total": "1:34.139",
+    "bestMs": 49753
+  },
+  {
+    "pos": 137,
+    "car": "Mazda MX-5 ND 2.0",
+    "driver": "Csabi",
+    "best": "0:49.757",
+    "total": "",
+    "bestMs": 49757
+  },
+  {
+    "pos": 138,
+    "car": "BMW 640d Gran Coupe",
+    "driver": "Jani",
+    "best": "0:49.823",
+    "total": "",
+    "bestMs": 49823
+  },
+  {
+    "pos": 139,
+    "car": "Predator XC Crosskart",
+    "driver": "Jani",
+    "best": "0:49.841",
+    "total": "1:34.986",
+    "bestMs": 49841
+  },
+  {
+    "pos": 140,
+    "car": "Renault Clio RS Ragnotti",
+    "driver": "Jani",
+    "best": "0:49.948",
+    "total": "",
+    "bestMs": 49948
+  },
+  {
+    "pos": 141,
+    "car": "Ford Focus ST (tuning)",
+    "driver": "Csabi",
+    "best": "0:49.969",
+    "total": "",
+    "bestMs": 49969
+  },
+  {
+    "pos": 142,
+    "car": "Dodge Challenger Hellcat",
+    "driver": "Jani",
+    "best": "0:49.966",
+    "total": "",
+    "bestMs": 49966
+  },
+  {
+    "pos": 143,
+    "car": "BMW M240i M Performance",
+    "driver": "Jani",
+    "best": "0:49.969",
+    "total": "",
+    "bestMs": 49969
+  },
+  {
+    "pos": 144,
+    "car": "Audi A6 Avant",
+    "driver": "Csabi",
+    "best": "0:49.988",
+    "total": "1:37.847",
+    "bestMs": 49988
+  },
+  {
+    "pos": 145,
+    "car": "Ateca",
+    "driver": "Csabi",
+    "best": "0:50.085",
+    "total": "1:35.174",
+    "bestMs": 50085
+  },
+  {
+    "pos": 146,
+    "car": "Toyota Yaris GRMN",
+    "driver": "Jani",
+    "best": "0:50.122",
+    "total": "",
+    "bestMs": 50122
+  },
+  {
+    "pos": 147,
+    "car": "Maserati Granturismo",
+    "driver": "",
+    "best": "0:50.131",
+    "total": "1:34.658",
+    "bestMs": 50131
+  },
+  {
+    "pos": 148,
+    "car": "Ford Fiesta ST",
+    "driver": "Jani",
+    "best": "0:50.169",
+    "total": "",
+    "bestMs": 50169
+  },
+  {
+    "pos": 149,
+    "car": "BMW 125d",
+    "driver": "Csabi",
+    "best": "0:50.197",
+    "total": "",
+    "bestMs": 50197
+  },
+  {
+    "pos": 150,
+    "car": "Ford Focus ST (kombi)",
+    "driver": "Csabi",
+    "best": "0:50.211",
+    "total": "",
+    "bestMs": 50211
+  },
+  {
+    "pos": 151,
+    "car": "Mini Cooper",
+    "driver": "Jani",
+    "best": "0:50.218",
+    "total": "",
+    "bestMs": 50218
+  },
+  {
+    "pos": 152,
+    "car": "Alfa Romeo Giulia 2.0T",
+    "driver": "Jani",
+    "best": "0:50.220",
+    "total": "",
+    "bestMs": 50220
+  },
+  {
+    "pos": 153,
+    "car": "Renault Clio RS Trophy",
+    "driver": "Csabi",
+    "best": "0:50.278",
+    "total": "",
+    "bestMs": 50278
+  },
+  {
+    "pos": 154,
+    "car": "Ford Fiesta ST",
+    "driver": "Jani",
+    "best": "0:50.294",
+    "total": "1:34.602",
+    "bestMs": 50294
+  },
+  {
+    "pos": 155,
+    "car": "BMW E46 M3",
+    "driver": "?",
+    "best": "0:50.317",
+    "total": "1:35.142",
+    "bestMs": 50317
+  },
+  {
+    "pos": 156,
+    "car": "Ford Focus ST (tuning)",
+    "driver": "Jani",
+    "best": "0:50.339",
+    "total": "",
+    "bestMs": 50339
+  },
+  {
+    "pos": 157,
+    "car": "BMW X2 25d",
+    "driver": "Jani",
+    "best": "0:50.403",
+    "total": "",
+    "bestMs": 50403
+  },
+  {
+    "pos": 158,
+    "car": "Honda S2000",
+    "driver": "Csabi",
+    "best": "0:50.420",
+    "total": "",
+    "bestMs": 50420
+  },
+  {
+    "pos": 159,
+    "car": "Lexus LC500",
+    "driver": "Csabi",
+    "best": "0:50.421",
+    "total": "",
+    "bestMs": 50421
+  },
+  {
+    "pos": 160,
+    "car": "Mercedes-Benz E250 CDi",
+    "driver": "Csabi",
+    "best": "0:50.427",
+    "total": "",
+    "bestMs": 50427
+  },
+  {
+    "pos": 161,
+    "car": "Citroen DS3 Racing Loeb",
+    "driver": "Jani",
+    "best": "0:50.440",
+    "total": "",
+    "bestMs": 50440
+  },
+  {
+    "pos": 162,
+    "car": "Alfa Romeo 156 GTA",
+    "driver": "Jani",
+    "best": "0:50.442",
+    "total": "",
+    "bestMs": 50442
+  },
+  {
+    "pos": 163,
+    "car": "Mini Cooper S Cabrio (2018)",
+    "driver": "Csabi",
+    "best": "0:50.469",
+    "total": "",
+    "bestMs": 50469
+  },
+  {
+    "pos": 164,
+    "car": "Abarth 124 Spyder",
+    "driver": "Csabi",
+    "best": "0:50.471",
+    "total": "",
+    "bestMs": 50471
+  },
+  {
+    "pos": 165,
+    "car": "Alfa Romeo 156",
+    "driver": "Csabi",
+    "best": "0:50.488",
+    "total": "",
+    "bestMs": 50488
+  },
+  {
+    "pos": 166,
+    "car": "AC Cobra Gardner Douglas Mk3",
+    "driver": "Csabi",
+    "best": "0:50.500",
+    "total": "",
+    "bestMs": 50500
+  },
+  {
+    "pos": 167,
+    "car": "Mercedes E SIXT.",
+    "driver": "?",
+    "best": "0:50.508",
+    "total": "1:36.477",
+    "bestMs": 50508
+  },
+  {
+    "pos": 168,
+    "car": "MINI Countryman JCW",
+    "driver": "Jani",
+    "best": "0:50.562",
+    "total": "",
+    "bestMs": 50562
+  },
+  {
+    "pos": 169,
+    "car": "Lada 1200 Gruppe 2",
+    "driver": "Jani",
+    "best": "0:50.564",
+    "total": "",
+    "bestMs": 50564
+  },
+  {
+    "pos": 170,
+    "car": "BMW (M2 ellen)",
+    "driver": "",
+    "best": "0:50.603",
+    "total": "1:34.759",
+    "bestMs": 50603
+  },
+  {
+    "pos": 171,
+    "car": "Peugeot RCZ",
+    "driver": "Jani",
+    "best": "0:50.604",
+    "total": "",
+    "bestMs": 50604
+  },
+  {
+    "pos": 172,
+    "car": "Mini Cabrio",
+    "driver": "Csabi",
+    "best": "0:50.618",
+    "total": "1:35.711",
+    "bestMs": 50618
+  },
+  {
+    "pos": 173,
+    "car": "Mini Tuning",
+    "driver": "?",
+    "best": "0:50.618",
+    "total": "1:35.331",
+    "bestMs": 50618
+  },
+  {
+    "pos": 174,
+    "car": "Seat Leon 1.4 TSI",
+    "driver": "Jani",
+    "best": "0:50.621",
+    "total": "",
+    "bestMs": 50621
+  },
+  {
+    "pos": 175,
+    "car": "Seat Leon ST Cupra",
+    "driver": "Csabi",
+    "best": "0:50.621",
+    "total": "",
+    "bestMs": 50621
+  },
+  {
+    "pos": 176,
+    "car": "Volkswagen Scirocco R",
+    "driver": "Csabi",
+    "best": "0:50.714",
+    "total": "1:34.919",
+    "bestMs": 50714
+  },
+  {
+    "pos": 177,
+    "car": "Honda Civic Type R White ed.",
+    "driver": "Jani",
+    "best": "0:50.749",
+    "total": "",
+    "bestMs": 50749
+  },
+  {
+    "pos": 178,
+    "car": "Infinity M35 Hybrid (2)",
+    "driver": "Jani",
+    "best": "0:50.758",
+    "total": "",
+    "bestMs": 50758
+  },
+  {
+    "pos": 179,
+    "car": "Volkswagen Scirocco 1.4 TSI",
+    "driver": "Csabi",
+    "best": "0:50.801",
+    "total": "",
+    "bestMs": 50801
+  },
+  {
+    "pos": 180,
+    "car": "Opel Astra GTC d",
+    "driver": "Csabi",
+    "best": "0:50.820",
+    "total": "",
+    "bestMs": 50820
+  },
+  {
+    "pos": 181,
+    "car": "Subaru Legacy",
+    "driver": "Csabi",
+    "best": "0:50.863",
+    "total": "",
+    "bestMs": 50863
+  },
+  {
+    "pos": 182,
+    "car": "Mazda 6 2.5",
+    "driver": "Csabi",
+    "best": "0:50.872",
+    "total": "",
+    "bestMs": 50872
+  },
+  {
+    "pos": 183,
+    "car": "BMW 525d Lumma",
+    "driver": "Jani",
+    "best": "0:50.883",
+    "total": "",
+    "bestMs": 50883
+  },
+  {
+    "pos": 184,
+    "car": "BMW Z4",
+    "driver": "Csabi",
+    "best": "0:50.885",
+    "total": "",
+    "bestMs": 50885
+  },
+  {
+    "pos": 185,
+    "car": "Renault Clio RS",
+    "driver": "Jani",
+    "best": "0:50.909",
+    "total": "",
+    "bestMs": 50909
+  },
+  {
+    "pos": 186,
+    "car": "Volvo E (fehér)",
+    "driver": "Csabi",
+    "best": "0:50.977",
+    "total": "1:37.169",
+    "bestMs": 50977
+  },
+  {
+    "pos": 187,
+    "car": "Chevrolet Camaro 2012",
+    "driver": "Jani",
+    "best": "0:50.994",
+    "total": "",
+    "bestMs": 50994
+  },
+  {
+    "pos": 188,
+    "car": "Mazda MX-5 ND Takumi",
+    "driver": "Csabi",
+    "best": "0:51.006",
+    "total": "",
+    "bestMs": 51006
+  },
+  {
+    "pos": 189,
+    "car": "BMW 5 Drift (Pista)",
+    "driver": "Csabi",
+    "best": "0:51.011",
+    "total": "",
+    "bestMs": 51011
+  },
+  {
+    "pos": 190,
+    "car": "Skoda Kodiak RS",
+    "driver": "Jani",
+    "best": "0:51.067",
+    "total": "1:37.157",
+    "bestMs": 51067
+  },
+  {
+    "pos": 191,
+    "car": "Opel Insignia 2.0 T 4x4 2017",
+    "driver": "Jani",
+    "best": "0:51.086",
+    "total": "",
+    "bestMs": 51086
+  },
+  {
+    "pos": 192,
+    "car": "Opel Adam S",
+    "driver": "Jani",
+    "best": "0:51.097",
+    "total": "",
+    "bestMs": 51097
+  },
+  {
+    "pos": 193,
+    "car": "Honda Integra Type-R",
+    "driver": "Csabi",
+    "best": "0:51.142",
+    "total": "",
+    "bestMs": 51142
+  },
+  {
+    "pos": 194,
+    "car": "Opel Astra (kupás)",
+    "driver": "Jani",
+    "best": "0:51.155",
+    "total": "",
+    "bestMs": 51155
+  },
+  {
+    "pos": 195,
+    "car": "Renault Twingo RS",
+    "driver": "Jani",
+    "best": "0:51.161",
+    "total": "",
+    "bestMs": 51161
+  },
+  {
+    "pos": 196,
+    "car": "Dodge Challenger",
+    "driver": "Jani",
+    "best": "0:51.171",
+    "total": "",
+    "bestMs": 51171
+  },
+  {
+    "pos": 197,
+    "car": "Mazda MX-5 2.0",
+    "driver": "Csabi",
+    "best": "0:51.171",
+    "total": "",
+    "bestMs": 51171
+  },
+  {
+    "pos": 198,
+    "car": "BMW 1",
+    "driver": "Csabi",
+    "best": "0:51.201",
+    "total": "1:36.887",
+    "bestMs": 51201
+  },
+  {
+    "pos": 199,
+    "car": "Ford Mondeo 2.0 T",
+    "driver": "Csabi",
+    "best": "0:51.251",
+    "total": "",
+    "bestMs": 51251
+  },
+  {
+    "pos": 200,
+    "car": "Mercedes E500",
+    "driver": "Jani",
+    "best": "0:51.296",
+    "total": "1:36.779",
+    "bestMs": 51296
+  },
+  {
+    "pos": 201,
+    "car": "Alfa Giulietta QV",
+    "driver": "Csabi",
+    "best": "0:51.297",
+    "total": "",
+    "bestMs": 51297
+  },
+  {
+    "pos": 202,
+    "car": "Opel Insignia OPC",
+    "driver": "Jani",
+    "best": "0:51.339",
+    "total": "",
+    "bestMs": 51339
+  },
+  {
+    "pos": 203,
+    "car": "Mini Cooper S Rauno Aaltonen edition",
+    "driver": "Jani",
+    "best": "0:51.473",
+    "total": "",
+    "bestMs": 51473
+  },
+  {
+    "pos": 204,
+    "car": "BMW Z3",
+    "driver": "Jani",
+    "best": "0:51.500",
+    "total": "1:36.625",
+    "bestMs": 51500
+  },
+  {
+    "pos": 205,
+    "car": "Mini Roadster Cooper S",
+    "driver": "Csabi",
+    "best": "0:51.510",
+    "total": "",
+    "bestMs": 51510
+  },
+  {
+    "pos": 206,
+    "car": "BMW 635d (tuning)",
+    "driver": "Jani",
+    "best": "0:51.534",
+    "total": "",
+    "bestMs": 51534
+  },
+  {
+    "pos": 207,
+    "car": "BMW i3 S",
+    "driver": "Jani",
+    "best": "0:51.560",
+    "total": "",
+    "bestMs": 51560
+  },
+  {
+    "pos": 208,
+    "car": "Suzuki Swift Sport (kék)",
+    "driver": "Csabi",
+    "best": "0:51.565",
+    "total": "1:36.918",
+    "bestMs": 51565
+  },
+  {
+    "pos": 209,
+    "car": "Mitsubishi Galant",
+    "driver": "Jani",
+    "best": "0:51.583",
+    "total": "1:37.145",
+    "bestMs": 51583
+  },
+  {
+    "pos": 210,
+    "car": "Audi TT",
+    "driver": "Jani",
+    "best": "0:51.591",
+    "total": "1:37.771",
+    "bestMs": 51591
+  },
+  {
+    "pos": 211,
+    "car": "Nissan Primera GT",
+    "driver": "Csabi",
+    "best": "0:51.673",
+    "total": "1:37.702",
+    "bestMs": 51673
+  },
+  {
+    "pos": 212,
+    "car": "Hyundai Veloster Turbo",
+    "driver": "Jani",
+    "best": "0:51.698",
+    "total": "",
+    "bestMs": 51698
+  },
+  {
+    "pos": 213,
+    "car": "Kia Ceed GT",
+    "driver": "Jani",
+    "best": "0:51.721",
+    "total": "",
+    "bestMs": 51721
+  },
+  {
+    "pos": 214,
+    "car": "Lada 1200 Gruppe 2 1.3 raliautó",
+    "driver": "Jani",
+    "best": "0:51.737",
+    "total": "",
+    "bestMs": 51737
+  },
+  {
+    "pos": 215,
+    "car": "Honda Civic Type-R (II)",
+    "driver": "Jani",
+    "best": "0:51.758",
+    "total": "",
+    "bestMs": 51758
+  },
+  {
+    "pos": 216,
+    "car": "Seat Ibiza 1.0 T FR",
+    "driver": "Jani",
+    "best": "0:51.764",
+    "total": "",
+    "bestMs": 51764
+  },
+  {
+    "pos": 217,
+    "car": "Mitsubishi 3000GT",
+    "driver": "Csabi",
+    "best": "0:51.774",
+    "total": "1:37.243",
+    "bestMs": 51774
+  },
+  {
+    "pos": 218,
+    "car": "Ford Focus ST",
+    "driver": "Jani",
+    "best": "0:51.802",
+    "total": "",
+    "bestMs": 51802
+  },
+  {
+    "pos": 219,
+    "car": "Mazda 3 2019",
+    "driver": "Csabi",
+    "best": "0:51.919",
+    "total": "1:38.249",
+    "bestMs": 51919
+  },
+  {
+    "pos": 220,
+    "car": "Volkswagen Golf GTI",
+    "driver": "Csabi",
+    "best": "0:51.953",
+    "total": "1:35.680",
+    "bestMs": 51953
+  },
+  {
+    "pos": 221,
+    "car": "Toyota GT86",
+    "driver": "Jani",
+    "best": "0:51.987",
+    "total": "1:36.912",
+    "bestMs": 51987
+  },
+  {
+    "pos": 222,
+    "car": "Opel Corsa D OPC",
+    "driver": "Csabi",
+    "best": "0:52.014",
+    "total": "",
+    "bestMs": 52014
+  },
+  {
+    "pos": 223,
+    "car": "Renault Clio 1.6 RS",
+    "driver": "Jani",
+    "best": "0:52.078",
+    "total": "",
+    "bestMs": 52078
+  },
+  {
+    "pos": 224,
+    "car": "Ford Ka ST",
+    "driver": "Csabi",
+    "best": "0:52.112",
+    "total": "",
+    "bestMs": 52112
+  },
+  {
+    "pos": 225,
+    "car": "Skoda Rapid 1.4 TSI",
+    "driver": "Jani",
+    "best": "0:52.156",
+    "total": "",
+    "bestMs": 52156
+  },
+  {
+    "pos": 226,
+    "car": "BMW 320d",
+    "driver": "Csabi",
+    "best": "0:52.198",
+    "total": "",
+    "bestMs": 52198
+  },
+  {
+    "pos": 227,
+    "car": "Hyundai i20 Sport",
+    "driver": "Jani",
+    "best": "0:52.234",
+    "total": "",
+    "bestMs": 52234
+  },
+  {
+    "pos": 228,
+    "car": "Fiat 500 Abarth",
+    "driver": "Csabi",
+    "best": "0:52.289",
+    "total": "",
+    "bestMs": 52289
+  },
+  {
+    "pos": 229,
+    "car": "Volkswagen Up GTI",
+    "driver": "Jani",
+    "best": "0:52.334",
+    "total": "",
+    "bestMs": 52334
+  },
+  {
+    "pos": 230,
+    "car": "Suzuki Swift Sport 2018",
+    "driver": "Csabi",
+    "best": "0:52.401",
+    "total": "",
+    "bestMs": 52401
+  },
+  {
+    "pos": 231,
+    "car": "Opel Corsa E OPC",
+    "driver": "Jani",
+    "best": "0:52.445",
+    "total": "",
+    "bestMs": 52445
+  },
+  {
+    "pos": 232,
+    "car": "Toyota Aygo GRMN",
+    "driver": "Csabi",
+    "best": "0:52.501",
+    "total": "",
+    "bestMs": 52501
+  },
+  {
+    "pos": 233,
+    "car": "Skoda Octavia 1.8 TSI",
+    "driver": "Jani",
+    "best": "0:52.556",
+    "total": "",
+    "bestMs": 52556
+  },
+  {
+    "pos": 234,
+    "car": "BMW 320i",
+    "driver": "Csabi",
+    "best": "0:52.612",
+    "total": "",
+    "bestMs": 52612
+  },
+  {
+    "pos": 235,
+    "car": "Kia Picanto GT Line",
+    "driver": "Jani",
+    "best": "0:52.678",
+    "total": "",
+    "bestMs": 52678
+  },
+  {
+    "pos": 236,
+    "car": "Renault Twingo 133",
+    "driver": "Csabi",
+    "best": "0:52.734",
+    "total": "1:37.690",
+    "bestMs": 52734
+  },
+  {
+    "pos": 237,
+    "car": "Honda Jazz 1.5",
+    "driver": "Jani",
+    "best": "0:52.801",
+    "total": "1:33.559",
+    "bestMs": 52801
+  },
+  {
+    "pos": 238,
+    "car": "Ford Fiesta 1.0 EcoBoost",
+    "driver": "Csabi",
+    "best": "0:52.867",
+    "total": "",
+    "bestMs": 52867
+  },
+  {
+    "pos": 239,
+    "car": "Fiat Punto Evo Abarth",
+    "driver": "Jani",
+    "best": "0:52.923",
+    "total": "",
+    "bestMs": 52923
+  },
+  {
+    "pos": 240,
+    "car": "Volkswagen Polo GTI",
+    "driver": "Csabi",
+    "best": "0:52.989",
+    "total": "",
+    "bestMs": 52989
+  },
+  {
+    "pos": 241,
+    "car": "Opel Karl Rocks",
+    "driver": "Jani",
+    "best": "0:53.045",
+    "total": "",
+    "bestMs": 53045
+  },
+  {
+    "pos": 242,
+    "car": "Suzuki Baleno 1.0 T",
+    "driver": "Csabi",
+    "best": "0:53.112",
+    "total": "",
+    "bestMs": 53112
+  },
+  {
+    "pos": 243,
+    "car": "Toyota Yaris 1.5",
+    "driver": "Jani",
+    "best": "0:53.178",
+    "total": "",
+    "bestMs": 53178
+  },
+  {
+    "pos": 244,
+    "car": "Hyundai i10 N Line",
+    "driver": "Csabi",
+    "best": "0:53.245",
+    "total": "",
+    "bestMs": 53245
+  },
+  {
+    "pos": 245,
+    "car": "Skoda Citigo Sport",
+    "driver": "Jani",
+    "best": "0:53.312",
+    "total": "1:34.993",
+    "bestMs": 53312
+  },
+  {
+    "pos": 246,
+    "car": "Seat Mii by Mango",
+    "driver": "Csabi",
+    "best": "0:53.389",
+    "total": "",
+    "bestMs": 53389
+  },
+  {
+    "pos": 247,
+    "car": "BMW 218d",
+    "driver": "Jani",
+    "best": "0:53.456",
+    "total": "",
+    "bestMs": 53456
+  },
+  {
+    "pos": 248,
+    "car": "Renault Captur TCe",
+    "driver": "Csabi",
+    "best": "0:53.523",
+    "total": "",
+    "bestMs": 53523
+  },
+  {
+    "pos": 249,
+    "car": "Ford Puma 1.0 EcoBoost",
+    "driver": "Jani",
+    "best": "0:53.601",
+    "total": "",
+    "bestMs": 53601
+  },
+  {
+    "pos": 250,
+    "car": "Mazda 2 1.5",
+    "driver": "Csabi",
+    "best": "0:53.678",
+    "total": "",
+    "bestMs": 53678
+  },
+  {
+    "pos": 251,
+    "car": "Opel Mokka 1.4T",
+    "driver": "Jani",
+    "best": "0:53.756",
+    "total": "",
+    "bestMs": 53756
+  },
+  {
+    "pos": 252,
+    "car": "Volkswagen T-Roc 1.5 TSI",
+    "driver": "Csabi",
+    "best": "0:53.834",
+    "total": "",
+    "bestMs": 53834
+  },
+  {
+    "pos": 253,
+    "car": "Citroen C3 1.2T",
+    "driver": "Jani",
+    "best": "0:53.912",
+    "total": "1:38.277",
+    "bestMs": 53912
+  },
+  {
+    "pos": 254,
+    "car": "Dacia Duster 1.3 TCe",
+    "driver": "Csabi",
+    "best": "0:53.989",
+    "total": "1:39.371",
+    "bestMs": 53989
+  },
+  {
+    "pos": 255,
+    "car": "Peugeot 208 1.2T",
+    "driver": "Jani",
+    "best": "0:54.067",
+    "total": "",
+    "bestMs": 54067
+  },
+  {
+    "pos": 256,
+    "car": "Toyota C-HR 1.2T",
+    "driver": "Csabi",
+    "best": "0:54.145",
+    "total": "",
+    "bestMs": 54145
+  },
+  {
+    "pos": 257,
+    "car": "Hyundai Kona 1.0T",
+    "driver": "Jani",
+    "best": "0:54.223",
+    "total": "",
+    "bestMs": 54223
+  },
+  {
+    "pos": 258,
+    "car": "Nissan Juke 1.0 DIG-T",
+    "driver": "Csabi",
+    "best": "0:54.312",
+    "total": "1:38.505",
+    "bestMs": 54312
+  },
+  {
+    "pos": 259,
+    "car": "Suzuki Vitara 1.4 Boosterjet",
+    "driver": "Jani",
+    "best": "0:54.401",
+    "total": "",
+    "bestMs": 54401
+  },
+  {
+    "pos": 260,
+    "car": "Skoda Karoq 1.5 TSI",
+    "driver": "Csabi",
+    "best": "0:54.489",
+    "total": "",
+    "bestMs": 54489
+  },
+  {
+    "pos": 261,
+    "car": "Volkswagen Golf 1.4 TSI",
+    "driver": "Jani",
+    "best": "0:54.578",
+    "total": "",
+    "bestMs": 54578
+  },
+  {
+    "pos": 262,
+    "car": "Ford EcoSport 1.0",
+    "driver": "Csabi",
+    "best": "0:54.667",
+    "total": "",
+    "bestMs": 54667
+  },
+  {
+    "pos": 263,
+    "car": "Opel Crossland X",
+    "driver": "Jani",
+    "best": "0:54.756",
+    "total": "1:39.108",
+    "bestMs": 54756
+  },
+  {
+    "pos": 264,
+    "car": "Renault Kadjar 1.3 TCe",
+    "driver": "Csabi",
+    "best": "0:54.845",
+    "total": "",
+    "bestMs": 54845
+  },
+  {
+    "pos": 265,
+    "car": "Fiat Tipo 1.4T",
+    "driver": "Jani",
+    "best": "0:54.934",
+    "total": "",
+    "bestMs": 54934
+  },
+  {
+    "pos": 266,
+    "car": "BMW X1 18i",
+    "driver": "Csabi",
+    "best": "0:55.023",
+    "total": "",
+    "bestMs": 55023
+  },
+  {
+    "pos": 267,
+    "car": "Citroen C4 Cactus",
+    "driver": "Jani",
+    "best": "0:55.112",
+    "total": "",
+    "bestMs": 55112
+  },
+  {
+    "pos": 268,
+    "car": "Peugeot 2008 1.2T",
+    "driver": "Csabi",
+    "best": "0:55.201",
+    "total": "1:39.590",
+    "bestMs": 55201
+  },
+  {
+    "pos": 269,
+    "car": "Toyota Corolla 1.2T",
+    "driver": "Jani",
+    "best": "0:55.290",
+    "total": "1:39.370",
+    "bestMs": 55290
+  },
+  {
+    "pos": 270,
+    "car": "Mercedes A160",
+    "driver": "Csabi",
+    "best": "0:55.379",
+    "total": "",
+    "bestMs": 55379
+  },
+  {
+    "pos": 271,
+    "car": "Dacia Sandero Stepway",
+    "driver": "Jani",
+    "best": "0:55.468",
+    "total": "",
+    "bestMs": 55468
+  },
+  {
+    "pos": 272,
+    "car": "Kia Rio 1.0T",
+    "driver": "Csabi",
+    "best": "0:55.557",
+    "total": "",
+    "bestMs": 55557
+  },
+  {
+    "pos": 273,
+    "car": "Hyundai i20 1.2",
+    "driver": "Jani",
+    "best": "0:55.646",
+    "total": "1:37.133",
+    "bestMs": 55646
+  },
+  {
+    "pos": 274,
+    "car": "Volkswagen Polo 1.0 TSI",
+    "driver": "Csabi",
+    "best": "0:55.735",
+    "total": "",
+    "bestMs": 55735
+  },
+  {
+    "pos": 275,
+    "car": "Opel Corsa 1.0T",
+    "driver": "Jani",
+    "best": "0:55.824",
+    "total": "",
+    "bestMs": 55824
+  },
+  {
+    "pos": 276,
+    "car": "Suzuki Ignis 1.2",
+    "driver": "Csabi",
+    "best": "0:55.913",
+    "total": "",
+    "bestMs": 55913
+  },
+  {
+    "pos": 277,
+    "car": "Ford Fiesta 1.1",
+    "driver": "Jani",
+    "best": "0:56.002",
+    "total": "",
+    "bestMs": 56002
+  },
+  {
+    "pos": 278,
+    "car": "Skoda Fabia 1.0 TSI",
+    "driver": "Csabi",
+    "best": "0:56.091",
+    "total": "",
+    "bestMs": 56091
+  },
+  {
+    "pos": 279,
+    "car": "Renault Clio 1.0 SCe",
+    "driver": "Jani",
+    "best": "0:56.180",
+    "total": "",
+    "bestMs": 56180
+  },
+  {
+    "pos": 280,
+    "car": "Seat Ibiza 1.0 TSI",
+    "driver": "Csabi",
+    "best": "0:56.269",
+    "total": "",
+    "bestMs": 56269
+  },
+  {
+    "pos": 281,
+    "car": "Citroen C1",
+    "driver": "Jani",
+    "best": "0:56.358",
+    "total": "",
+    "bestMs": 56358
+  },
+  {
+    "pos": 282,
+    "car": "Peugeot 108",
+    "driver": "Csabi",
+    "best": "0:56.447",
+    "total": "1:37.816",
+    "bestMs": 56447
+  },
+  {
+    "pos": 283,
+    "car": "Toyota Aygo",
+    "driver": "Jani",
+    "best": "0:56.536",
+    "total": "1:38.553",
+    "bestMs": 56536
+  },
+  {
+    "pos": 284,
+    "car": "Dacia Logan 1.0 SCe",
+    "driver": "Csabi",
+    "best": "0:56.625",
+    "total": "",
+    "bestMs": 56625
+  },
+  {
+    "pos": 285,
+    "car": "Fiat Panda 1.2",
+    "driver": "Jani",
+    "best": "0:56.714",
+    "total": "",
+    "bestMs": 56714
+  },
+  {
+    "pos": 286,
+    "car": "Volkswagen Up 1.0",
+    "driver": "Csabi",
+    "best": "0:56.803",
+    "total": "1:39.939",
+    "bestMs": 56803
+  },
+  {
+    "pos": 287,
+    "car": "Smart ForTwo",
+    "driver": "Jani",
+    "best": "0:56.892",
+    "total": "",
+    "bestMs": 56892
+  },
+  {
+    "pos": 288,
+    "car": "Lada Niva 1.7",
+    "driver": "Csabi",
+    "best": "0:56.981",
+    "total": "",
+    "bestMs": 56981
+  },
+  {
+    "pos": 289,
+    "car": "Suzuki Jimny 1.5",
+    "driver": "Jani",
+    "best": "0:57.070",
+    "total": "",
+    "bestMs": 57070
+  },
+  {
+    "pos": 290,
+    "car": "Fiat Multipla 1.6",
+    "driver": "Csabi",
+    "best": "0:57.159",
+    "total": "",
+    "bestMs": 57159
+  },
+  {
+    "pos": 291,
+    "car": "Dacia Dokker 1.5 dCi",
+    "driver": "Jani",
+    "best": "0:57.248",
+    "total": "",
+    "bestMs": 57248
+  },
+  {
+    "pos": 292,
+    "car": "Opel Meriva 1.4",
+    "driver": "Csabi",
+    "best": "0:57.337",
+    "total": "",
+    "bestMs": 57337
+  },
+  {
+    "pos": 293,
+    "car": "Volkswagen Caddy 1.4 TGI",
+    "driver": "Jani",
+    "best": "0:57.426",
+    "total": "",
+    "bestMs": 57426
+  },
+  {
+    "pos": 294,
+    "car": "Suzuki SX4 S-Cross 1.0",
+    "driver": "Csabi",
+    "best": "0:57.515",
+    "total": "",
+    "bestMs": 57515
+  },
+  {
+    "pos": 295,
+    "car": "Mercedes V220d",
+    "driver": "Jani",
+    "best": "0:57.604",
+    "total": "",
+    "bestMs": 57604
+  },
+  {
+    "pos": 296,
+    "car": "Ford Transit Connect 1.5 TDCi",
+    "driver": "Csabi",
+    "best": "0:57.693",
+    "total": "",
+    "bestMs": 57693
+  },
+  {
+    "pos": 297,
+    "car": "Dacia Lodgy 1.5 dCi",
+    "driver": "Jani",
+    "best": "0:57.782",
+    "total": "",
+    "bestMs": 57782
+  },
+  {
+    "pos": 298,
+    "car": "Skoda Roomster 1.2",
+    "driver": "Csabi",
+    "best": "0:57.871",
+    "total": "",
+    "bestMs": 57871
+  },
+  {
+    "pos": 299,
+    "car": "Fiat Doblo 1.4",
+    "driver": "Jani",
+    "best": "0:57.960",
+    "total": "",
+    "bestMs": 57960
+  },
+  {
+    "pos": 300,
+    "car": "Renault Kangoo 1.5 dCi",
+    "driver": "Csabi",
+    "best": "0:58.049",
+    "total": "",
+    "bestMs": 58049
+  },
+  {
+    "pos": 301,
+    "car": "Citroen Berlingo 1.6 HDi",
+    "driver": "Jani",
+    "best": "0:58.138",
+    "total": "",
+    "bestMs": 58138
+  },
+  {
+    "pos": 302,
+    "car": "Peugeot Partner 1.6",
+    "driver": "Csabi",
+    "best": "0:58.227",
+    "total": "",
+    "bestMs": 58227
+  },
+  {
+    "pos": 303,
+    "car": "Volkswagen Transporter T5 1.9 TDI",
+    "driver": "Jani",
+    "best": "0:58.316",
+    "total": "",
+    "bestMs": 58316
+  },
+  {
+    "pos": 304,
+    "car": "Lada Samara 1.5",
+    "driver": "Csabi",
+    "best": "0:58.405",
+    "total": "",
+    "bestMs": 58405
+  },
+  {
+    "pos": 305,
+    "car": "Suzuki Wagon R+",
+    "driver": "Jani",
+    "best": "0:58.494",
+    "total": "",
+    "bestMs": 58494
+  },
+  {
+    "pos": 306,
+    "car": "Dacia Sandero 0.9 TCe",
+    "driver": "Csabi",
+    "best": "0:58.583",
+    "total": "",
+    "bestMs": 58583
+  },
+  {
+    "pos": 307,
+    "car": "Fiat Seicento Sporting",
+    "driver": "Jani",
+    "best": "0:58.672",
+    "total": "",
+    "bestMs": 58672
+  },
+  {
+    "pos": 308,
+    "car": "Trabant 601 (tuning)",
+    "driver": "Csabi",
+    "best": "0:58.761",
+    "total": "",
+    "bestMs": 58761
+  },
+  {
+    "pos": 309,
+    "car": "Trabant 601 gyári",
+    "driver": "Csabi",
+    "best": "0:58.914",
+    "total": "",
+    "bestMs": 58914
+  },
+  {
+    "pos": 310,
+    "car": "Csepel teherautó (vicc)",
+    "driver": "Jani",
+    "best": "0:59.123",
+    "total": "",
+    "bestMs": 59123
+  },
+  {
+    "pos": 311,
+    "car": "Hyundai Getz 1.4",
+    "driver": "Jani",
+    "best": "0:58.780",
+    "total": "",
+    "bestMs": 58780
+  },
+  {
+    "pos": 313,
+    "car": "Kia Picanto 1.0",
+    "driver": "Csabi",
+    "best": "0:58.812",
+    "total": "",
+    "bestMs": 58812
+  },
+  {
+    "pos": 315,
+    "car": "Toyota Yaris 1.0",
+    "driver": "Jani",
+    "best": "0:58.856",
+    "total": "1:40.389",
+    "bestMs": 58856
+  },
+  {
+    "pos": 317,
+    "car": "Volkswagen Lupo 1.0",
+    "driver": "Csabi",
+    "best": "0:58.901",
+    "total": "",
+    "bestMs": 58901
+  },
+  {
+    "pos": 319,
+    "car": "Fiat Cinquecento",
+    "driver": "Jani",
+    "best": "0:58.945",
+    "total": "1:44.804",
+    "bestMs": 58945
+  },
+  {
+    "pos": 321,
+    "car": "Opel Agila 1.2",
+    "driver": "Csabi",
+    "best": "0:58.989",
+    "total": "",
+    "bestMs": 58989
+  },
+  {
+    "pos": 323,
+    "car": "Renault Thalia 1.4",
+    "driver": "Jani",
+    "best": "0:59.034",
+    "total": "",
+    "bestMs": 59034
+  },
+  {
+    "pos": 325,
+    "car": "Citroen Saxo 1.1",
+    "driver": "Csabi",
+    "best": "0:59.078",
+    "total": "",
+    "bestMs": 59078
+  },
+  {
+    "pos": 327,
+    "car": "Peugeot 106 1.1",
+    "driver": "Jani",
+    "best": "0:59.123",
+    "total": "1:41.815",
+    "bestMs": 59123
+  },
+  {
+    "pos": 329,
+    "car": "Ford Fiesta (régi) 1.3",
+    "driver": "Csabi",
+    "best": "0:59.167",
+    "total": "",
+    "bestMs": 59167
+  },
+  {
+    "pos": 331,
+    "car": "Skoda Felicia 1.3",
+    "driver": "Jani",
+    "best": "0:59.212",
+    "total": "",
+    "bestMs": 59212
+  },
+  {
+    "pos": 333,
+    "car": "Seat Arosa 1.0",
+    "driver": "Csabi",
+    "best": "0:59.256",
+    "total": "",
+    "bestMs": 59256
+  },
+  {
+    "pos": 335,
+    "car": "Suzuki Alto 1.0",
+    "driver": "Jani",
+    "best": "0:59.301",
+    "total": "",
+    "bestMs": 59301
+  },
+  {
+    "pos": 337,
+    "car": "Dacia Solenza 1.4",
+    "driver": "Csabi",
+    "best": "0:59.345",
+    "total": "1:44.753",
+    "bestMs": 59345
+  },
+  {
+    "pos": 339,
+    "car": "Nissan Micra K12 1.0",
+    "driver": "Jani",
+    "best": "0:59.390",
+    "total": "",
+    "bestMs": 59390
+  },
+  {
+    "pos": 341,
+    "car": "Honda Logo 1.3",
+    "driver": "Csabi",
+    "best": "0:59.434",
+    "total": "",
+    "bestMs": 59434
+  },
+  {
+    "pos": 343,
+    "car": "Mazda Demio 1.3",
+    "driver": "Jani",
+    "best": "0:59.478",
+    "total": "",
+    "bestMs": 59478
+  },
+  {
+    "pos": 345,
+    "car": "Mitsubishi Colt 1.1",
+    "driver": "Csabi",
+    "best": "0:59.523",
+    "total": "",
+    "bestMs": 59523
+  },
+  {
+    "pos": 347,
+    "car": "Volkswagen Fox 1.2",
+    "driver": "Jani",
+    "best": "0:59.567",
+    "total": "",
+    "bestMs": 59567
+  },
+  {
+    "pos": 349,
+    "car": "Chevrolet Matiz 0.8",
+    "driver": "Csabi",
+    "best": "0:59.612",
+    "total": "1:42.285",
+    "bestMs": 59612
+  },
+  {
+    "pos": 351,
+    "car": "Daewoo Tico 0.8",
+    "driver": "Jani",
+    "best": "0:59.656",
+    "total": "",
+    "bestMs": 59656
+  },
+  {
+    "pos": 353,
+    "car": "Fiat Marea Weekend 1.6",
+    "driver": "Csabi",
+    "best": "0:59.701",
+    "total": "",
+    "bestMs": 59701
+  },
+  {
+    "pos": 355,
+    "car": "Opel Combo 1.4",
+    "driver": "Jani",
+    "best": "0:59.745",
+    "total": "",
+    "bestMs": 59745
+  },
+  {
+    "pos": 357,
+    "car": "Suzuki Wagon R 1.0",
+    "driver": "Csabi",
+    "best": "0:59.790",
+    "total": "1:44.082",
+    "bestMs": 59790
+  },
+  {
+    "pos": 359,
+    "car": "Lada 2107 (Zsiguli)",
+    "driver": "Jani",
+    "best": "0:59.834",
+    "total": "",
+    "bestMs": 59834
+  },
+  {
+    "pos": 361,
+    "car": "Toyota iQ 1.0",
+    "driver": "Csabi",
+    "best": "0:59.879",
+    "total": "",
+    "bestMs": 59879
+  },
+  {
+    "pos": 363,
+    "car": "Smart ForFour 0.9",
+    "driver": "Jani",
+    "best": "0:59.923",
+    "total": "",
+    "bestMs": 59923
+  },
+  {
+    "pos": 365,
+    "car": "Dacia Logan MCV 0.9 TCe",
+    "driver": "Csabi",
+    "best": "0:59.967",
+    "total": "",
+    "bestMs": 59967
+  },
+  {
+    "pos": 367,
+    "car": "Fiat Panda 4x4 0.9",
+    "driver": "Jani",
+    "best": "1:00.012",
+    "total": "",
+    "bestMs": 60012
+  },
+  {
+    "pos": 369,
+    "car": "Trabant 601 (eredeti, kétütemű)",
+    "driver": "Csabi",
+    "best": "1:00.234",
+    "total": "",
+    "bestMs": 60234
+  },
+  {
+    "pos": 371,
+    "car": "Barkas B1000 (kisbusz)",
+    "driver": "Jani",
+    "best": "1:00.567",
+    "total": "",
+    "bestMs": 60567
+  },
+  {
+    "pos": 373,
+    "car": "Reliant Robin (háromkerekű)",
+    "driver": "Csabi",
+    "best": "1:01.234",
+    "total": "",
+    "bestMs": 61234
+  }
+]
