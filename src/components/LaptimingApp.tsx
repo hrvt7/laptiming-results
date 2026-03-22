@@ -4,57 +4,33 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import type { Result } from "@/app/page";
 
+/* ─── Utilities ─── */
+
 function getBrand(car: string): string {
-  const brandMap: Record<string, string[]> = {
-    BMW: ["BMW", "BFR BMW"],
-    Audi: ["Audi"],
-    Mercedes: ["Mercedes"],
-    Volkswagen: ["VW", "Volkswagen"],
-    Porsche: ["Porsche"],
-    Honda: ["Honda"],
-    Toyota: ["Toyota"],
-    Mazda: ["Mazda"],
-    Ford: ["Ford"],
-    Renault: ["Renault"],
-    Opel: ["Opel"],
-    Subaru: ["Subaru"],
-    Mitsubishi: ["Mitsubishi"],
-    Nissan: ["Nissan"],
-    Hyundai: ["Hyundai"],
-    Skoda: ["Skoda"],
-    Seat: ["Seat", "Cupra", "Ateca"],
-    Alfa: ["Alfa"],
-    Suzuki: ["Suzuki"],
-    Mini: ["Mini", "MINI"],
-    Peugeot: ["Peugeot"],
-    Chevrolet: ["Chevy", "Chevrolet", "Corvette"],
-    Ferrari: ["Ferrari"],
-    Lexus: ["Lexus"],
-    Kia: ["Kia"],
-    Dodge: ["Dodge"],
-    Citroen: ["Citroen"],
-    Fiat: ["Fiat", "Abarth"],
-    Lada: ["Lada"],
-    Volvo: ["Volvo"],
-    Maserati: ["Maserati"],
-    Tesla: ["Tesla"],
-    Dacia: ["Dacia"],
-    Smart: ["Smart"],
-    Trabant: ["Trabant"],
-    Pontiac: ["Pontiac"],
+  const map: Record<string, string[]> = {
+    BMW: ["BMW", "BFR BMW"], Audi: ["Audi"], Mercedes: ["Mercedes"],
+    Volkswagen: ["VW", "Volkswagen"], Porsche: ["Porsche"], Honda: ["Honda"],
+    Toyota: ["Toyota"], Mazda: ["Mazda"], Ford: ["Ford"], Renault: ["Renault"],
+    Opel: ["Opel"], Subaru: ["Subaru"], Mitsubishi: ["Mitsubishi"],
+    Nissan: ["Nissan"], Hyundai: ["Hyundai"], Skoda: ["Skoda"],
+    Seat: ["Seat", "Cupra", "Ateca"], Alfa: ["Alfa"], Suzuki: ["Suzuki"],
+    Mini: ["Mini", "MINI"], Peugeot: ["Peugeot"],
+    Chevrolet: ["Chevy", "Chevrolet", "Corvette"], Ferrari: ["Ferrari"],
+    Lexus: ["Lexus"], Kia: ["Kia"], Dodge: ["Dodge"], Citroen: ["Citroen"],
+    Fiat: ["Fiat", "Abarth"], Lada: ["Lada"], Volvo: ["Volvo"],
+    Maserati: ["Maserati"], Tesla: ["Tesla"], Dacia: ["Dacia"],
+    Smart: ["Smart"], Trabant: ["Trabant"], Pontiac: ["Pontiac"],
     Infinity: ["Infinity"],
   };
-  for (const [brand, prefixes] of Object.entries(brandMap)) {
-    for (const prefix of prefixes) {
-      if (car.startsWith(prefix)) return brand;
-    }
+  for (const [brand, prefixes] of Object.entries(map)) {
+    for (const p of prefixes) { if (car.startsWith(p)) return brand; }
   }
   return "Egyéb";
 }
 
-function driverColor(driver: string) {
-  return driver === "Jani" ? "#00e5ff" : driver === "Csabi" ? "#ff3547" : "#555";
-}
+const dc = (d: string) => d === "Jani" ? "#00e5ff" : d === "Csabi" ? "#ff3547" : "#849396";
+
+/* ─── Main App ─── */
 
 export function LaptimingApp({ results }: { results: Result[] }) {
   const searchParams = useSearchParams();
@@ -69,57 +45,29 @@ export function LaptimingApp({ results }: { results: Result[] }) {
   const [selectedPositions, setSelectedPositions] = useState<number[]>([]);
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
 
-  // URL sync: read ?compare= on mount
   useEffect(() => {
     const cp = searchParams.get("compare");
     if (cp) {
-      const positions = cp.split(",").map(Number).filter((n) => !isNaN(n) && n > 0);
-      if (positions.length >= 2) {
-        setSelectedPositions(positions.slice(0, 3));
-        setActiveTab("compare");
-      }
+      const pos = cp.split(",").map(Number).filter((n) => !isNaN(n) && n > 0);
+      if (pos.length >= 2) { setSelectedPositions(pos.slice(0, 3)); setActiveTab("compare"); }
     }
   }, [searchParams]);
 
-  // URL sync: write ?compare= on change
-  const updateURL = useCallback(
-    (positions: number[]) => {
-      if (positions.length >= 2) {
-        router.replace(`?compare=${positions.join(",")}`, { scroll: false });
-      } else {
-        router.replace("/", { scroll: false });
-      }
-    },
-    [router]
-  );
+  const updateURL = useCallback((pos: number[]) => {
+    router.replace(pos.length >= 2 ? `?compare=${pos.join(",")}` : "/", { scroll: false });
+  }, [router]);
 
-  const toggleCompare = useCallback(
-    (pos: number) => {
-      setSelectedPositions((prev) => {
-        let next: number[];
-        if (prev.includes(pos)) {
-          next = prev.filter((p) => p !== pos);
-        } else if (prev.length >= 3) {
-          next = [...prev.slice(1), pos];
-        } else {
-          next = [...prev, pos];
-        }
-        updateURL(next);
-        return next;
-      });
-    },
-    [updateURL]
-  );
-
-  const clearCompare = useCallback(() => {
-    setSelectedPositions([]);
-    updateURL([]);
+  const toggleCompare = useCallback((pos: number) => {
+    setSelectedPositions((prev) => {
+      const next = prev.includes(pos) ? prev.filter((p) => p !== pos) : prev.length >= 3 ? [...prev.slice(1), pos] : [...prev, pos];
+      updateURL(next);
+      return next;
+    });
   }, [updateURL]);
 
-  const selectedCars = useMemo(
-    () => selectedPositions.map((p) => results.find((r) => r.pos === p)).filter(Boolean) as Result[],
-    [selectedPositions, results]
-  );
+  const clearCompare = useCallback(() => { setSelectedPositions([]); updateURL([]); }, [updateURL]);
+
+  const selectedCars = useMemo(() => selectedPositions.map((p) => results.find((r) => r.pos === p)).filter(Boolean) as Result[], [selectedPositions, results]);
 
   const brands = useMemo(() => {
     const s = new Set<string>();
@@ -127,276 +75,295 @@ export function LaptimingApp({ results }: { results: Result[] }) {
     return Array.from(s).sort();
   }, [results]);
 
-  const filtered = useMemo(() => {
-    return results.filter((r) => {
-      if (search && !r.car.toLowerCase().includes(search.toLowerCase())) return false;
-      if (driverFilter !== "all" && r.driver !== driverFilter) return false;
-      if (brandFilter !== "all" && getBrand(r.car) !== brandFilter) return false;
-      return true;
-    });
-  }, [results, search, driverFilter, brandFilter]);
+  const filtered = useMemo(() => results.filter((r) => {
+    if (search && !r.car.toLowerCase().includes(search.toLowerCase())) return false;
+    if (driverFilter !== "all" && r.driver !== driverFilter) return false;
+    if (brandFilter !== "all" && getBrand(r.car) !== brandFilter) return false;
+    return true;
+  }), [results, search, driverFilter, brandFilter]);
 
   const displayed = showAll ? filtered : filtered.slice(0, 50);
   const fastestMs = results[0]?.bestMs ?? 42200;
   const janiCars = results.filter((r) => r.driver === "Jani");
   const csabiCars = results.filter((r) => r.driver === "Csabi");
-  const janiBest = janiCars[0];
-  const csabiBest = csabiCars[0];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-      {/* Floating comparison bar */}
-      {selectedPositions.length >= 2 && (
-        <div
-          className="fixed top-0 left-0 right-0 z-50 px-4 py-2.5"
-          style={{
-            background: "rgba(8,8,12,0.85)",
-            backdropFilter: "blur(12px)",
-            borderBottom: "1px solid #2a2a3a",
-          }}
-        >
-          <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 min-w-0 flex-1">
-              <span className="text-xs shrink-0" style={{ color: "#888", fontFamily: "var(--font-barlow-condensed)" }}>
-                {selectedCars.length} autó:
-              </span>
-              <div className="flex items-center gap-1.5 min-w-0 overflow-hidden">
-                {selectedCars.map((c, i) => (
-                  <span key={c.pos} className="flex items-center gap-1 shrink-0">
-                    {i > 0 && <span style={{ color: "#333" }}>vs</span>}
-                    <span
-                      className="text-xs font-medium truncate max-w-[120px] sm:max-w-[200px]"
-                      style={{ color: driverColor(c.driver), fontFamily: "var(--font-barlow-condensed)" }}
-                    >
-                      {c.car}
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="flex gap-2 shrink-0">
-              <button
-                onClick={() => {
-                  setActiveTab("compare");
-                  compareRef.current?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="px-3 py-1.5 rounded-lg text-xs font-medium"
-                style={{ background: "#00e5ff", color: "#000", fontFamily: "var(--font-barlow-condensed)" }}
-              >
-                <span className="hidden sm:inline">Összehasonlítás</span>
-                <span className="sm:hidden">&#x2194;</span>
+    <>
+      {/* Fixed Top Nav */}
+      <header className="fixed top-0 z-50 w-full h-14 flex justify-between items-center px-6"
+        style={{ background: "rgba(19,19,23,0.8)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <div className="flex items-center gap-8">
+          <h1 className="text-xl font-black tracking-tighter uppercase bg-gradient-to-r from-white to-[#00e5ff] bg-clip-text text-transparent"
+            style={{ fontFamily: "var(--font-orbitron)" }}>LAPTIMING</h1>
+          <nav className="hidden md:flex items-center gap-6">
+            {(["pilots", "compare"] as const).map((tab) => (
+              <button key={tab} onClick={() => setActiveTab(tab)}
+                className="py-1 text-xs uppercase tracking-[0.2em] transition-all"
+                style={{
+                  fontFamily: "var(--font-space-grotesk)",
+                  color: activeTab === tab ? "#00e5ff" : "#849396",
+                  borderBottom: activeTab === tab ? "2px solid #00e5ff" : "2px solid transparent",
+                  fontWeight: activeTab === tab ? 700 : 400,
+                }}>
+                {tab === "pilots" ? "Eredmények" : "Összehasonlítás"}
               </button>
-              <button
-                onClick={clearCompare}
-                className="px-3 py-1.5 rounded-lg text-xs"
-                style={{ background: "#1a1a24", color: "#888", border: "1px solid #2a2a3a", fontFamily: "var(--font-barlow-condensed)" }}
-              >
-                <span className="hidden sm:inline">Törlés</span>
-                <span className="sm:hidden">&#x2715;</span>
-              </button>
-            </div>
-          </div>
+            ))}
+          </nav>
         </div>
-      )}
-
-      {/* Header */}
-      <header className="text-center mb-8">
-        <h1
-          className="text-4xl sm:text-6xl font-bold tracking-wider"
-          style={{
-            fontFamily: "var(--font-orbitron)",
-            background: "linear-gradient(135deg, #ffffff 0%, #00e5ff 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          LAPTIMING
-        </h1>
-        <p className="text-lg sm:text-xl mt-2 tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#888" }}>
-          Kakucs Ring
-        </p>
-        <p className="text-sm mt-1" style={{ color: "#555" }}>
-          {results.length} autó tesztelve
-        </p>
-      </header>
-
-      {/* Tabs */}
-      <div className="flex justify-center gap-1 mb-6" ref={compareRef}>
-        {(["pilots", "compare"] as const).map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className="px-5 py-2 rounded-lg text-sm font-medium transition-all"
-            style={{
-              fontFamily: "var(--font-barlow-condensed)",
-              background: activeTab === tab ? "#1a1a24" : "transparent",
-              color: activeTab === tab ? "#e8e8ec" : "#555",
-              border: activeTab === tab ? "1px solid #2a2a3a" : "1px solid transparent",
-            }}
-          >
-            {tab === "pilots" ? "Pilóták" : "Autók összehasonlítása"}
-          </button>
-        ))}
-      </div>
-
-      {/* Pilots tab */}
-      {activeTab === "pilots" && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-          <DriverCard name="Jani" color="#00e5ff" bestTime={janiBest?.best ?? "-"} bestCar={janiBest?.car ?? "-"} totalCars={janiCars.length} />
-          <div className="flex items-center justify-center">
-            <span className="text-3xl sm:text-5xl font-bold" style={{ fontFamily: "var(--font-orbitron)", color: "#333" }}>VS</span>
-          </div>
-          <DriverCard name="Csabi" color="#ff3547" bestTime={csabiBest?.best ?? "-"} bestCar={csabiBest?.car ?? "-"} totalCars={csabiCars.length} />
-        </div>
-      )}
-
-      {/* Compare tab */}
-      {activeTab === "compare" && (
-        <CompareSection results={results} selectedCars={selectedCars} toggleCompare={toggleCompare} />
-      )}
-
-      {/* Stat Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-        <StatCard label="Legjobb köridő" value={results[0]?.best ?? "-"} sub={`${results[0]?.car ?? ""} • ${results[0]?.driver || "?"}`} accent="#ffd600" />
-        <StatCard label="Összes autó" value={String(results.length)} sub="tesztelve" accent="#a855f7" />
-        <StatCard label="Jani autók" value={String(janiCars.length)} sub="tesztelés" accent="#00e5ff" />
-        <StatCard label="Csabi autók" value={String(csabiCars.length)} sub="tesztelés" accent="#ff3547" />
-      </div>
-
-      {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
-        <input
-          type="text"
-          placeholder="Keresés autó neve alapján..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 px-4 py-2.5 rounded-lg border text-sm"
-          style={{ fontFamily: "var(--font-barlow)", background: "#111118", borderColor: "#2a2a3a", color: "#e8e8ec" }}
-        />
-        <div className="flex gap-2">
-          {(["all", "Jani", "Csabi"] as const).map((d) => (
-            <button
-              key={d}
-              onClick={() => setDriverFilter(d)}
-              className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+        {/* Mobile tab toggle */}
+        <div className="flex md:hidden gap-1">
+          {(["pilots", "compare"] as const).map((tab) => (
+            <button key={tab} onClick={() => setActiveTab(tab)}
+              className="px-3 py-1.5 text-[10px] uppercase tracking-wider"
               style={{
-                fontFamily: "var(--font-barlow-condensed)",
-                background: driverFilter === d ? (d === "Jani" ? "#00e5ff" : d === "Csabi" ? "#ff3547" : "#333") : "#1a1a24",
-                color: driverFilter === d ? (d === "all" ? "#fff" : "#000") : "#888",
-                border: "1px solid",
-                borderColor: driverFilter === d ? "transparent" : "#2a2a3a",
-              }}
-            >
-              {d === "all" ? "Mind" : d}
+                fontFamily: "var(--font-space-grotesk)",
+                background: activeTab === tab ? "#00e5ff" : "transparent",
+                color: activeTab === tab ? "#001f24" : "#849396",
+                fontWeight: 700,
+              }}>
+              {tab === "pilots" ? "Lista" : "VS"}
             </button>
           ))}
         </div>
-        <select
-          value={brandFilter}
-          onChange={(e) => setBrandFilter(e.target.value)}
-          className="px-4 py-2.5 rounded-lg border text-sm"
-          style={{ fontFamily: "var(--font-barlow)", background: "#111118", borderColor: "#2a2a3a", color: "#e8e8ec" }}
-        >
-          <option value="all">Minden márka</option>
-          {brands.map((b) => (
-            <option key={b} value={b}>{b}</option>
-          ))}
-        </select>
-      </div>
+      </header>
 
-      <p className="text-xs mb-3" style={{ color: "#555", fontFamily: "var(--font-barlow)" }}>
-        {filtered.length} találat{!showAll && filtered.length > 50 && ` (Top 50 megjelenítve)`}
-      </p>
-
-      {/* Results List */}
-      <div className="space-y-1.5">
-        {displayed.map((r, idx) => (
-          <ResultRow
-            key={`${r.pos}-${r.car}`}
-            result={r}
-            fastestMs={fastestMs}
-            index={idx}
-            isSelected={selectedPositions.includes(r.pos)}
-            onToggleCompare={() => toggleCompare(r.pos)}
-            isExpanded={expandedRow === r.pos}
-            onToggleExpand={() => setExpandedRow(expandedRow === r.pos ? null : r.pos)}
-          />
-        ))}
-      </div>
-
-      {filtered.length > 50 && (
-        <div className="text-center mt-6">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="px-6 py-2.5 rounded-lg text-sm font-medium transition-all"
-            style={{ fontFamily: "var(--font-barlow-condensed)", background: "#1a1a24", border: "1px solid #2a2a3a", color: "#00e5ff" }}
-          >
-            {showAll ? "Top 50 mutatása" : `Összes mutatása (${filtered.length})`}
-          </button>
+      {/* Floating comparison bar */}
+      {selectedPositions.length >= 2 && (
+        <div className="fixed top-14 left-0 right-0 z-40 px-6 py-2"
+          style={{ background: "rgba(14,14,18,0.9)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+          <div className="max-w-[1600px] mx-auto flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 min-w-0 flex-1">
+              <span className="text-[10px] uppercase tracking-wider shrink-0" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>
+                {selectedCars.length} autó:
+              </span>
+              {selectedCars.map((c, i) => (
+                <span key={c.pos} className="flex items-center gap-1 shrink-0">
+                  {i > 0 && <span style={{ color: "#353439" }}>vs</span>}
+                  <span className="text-xs font-bold truncate max-w-[140px]" style={{ fontFamily: "var(--font-space-grotesk)", color: dc(c.driver) }}>{c.car}</span>
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <button onClick={() => { setActiveTab("compare"); compareRef.current?.scrollIntoView({ behavior: "smooth" }); }}
+                className="px-4 py-1.5 text-[10px] font-black uppercase tracking-wider"
+                style={{ background: "linear-gradient(135deg, #c3f5ff, #00e5ff)", color: "#001f24" }}>
+                <span className="hidden sm:inline">Összehasonlítás</span><span className="sm:hidden">VS</span>
+              </button>
+              <button onClick={clearCompare}
+                className="px-3 py-1.5 text-[10px] uppercase tracking-wider"
+                style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#849396" }}>
+                Törlés
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
-      <footer className="mt-16 pb-8 text-center border-t" style={{ borderColor: "#1a1a24" }}>
-        <p className="mt-6 text-sm tracking-[0.3em]" style={{ fontFamily: "var(--font-orbitron)", color: "#333" }}>LAPTIMING</p>
-        <p className="text-xs mt-1" style={{ color: "#444" }}>Kakucs Ring • {results.length} autó</p>
-      </footer>
+      <main className="pt-20 pb-20 px-4 sm:px-6 max-w-[1600px] mx-auto grid-bg min-h-screen">
+        {/* Page Title */}
+        <div className="mb-10">
+          <p className="text-[10px] uppercase tracking-[0.3em] mb-2" style={{ fontFamily: "var(--font-space-grotesk)", color: "#00e5ff" }}>
+            Kakucs Ring Circuit
+          </p>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ fontFamily: "var(--font-orbitron)", color: "#e4e1e8" }}>
+            KAKUCS RING
+          </h2>
+        </div>
+
+        {/* Quick Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="glass-panel p-5">
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Best Lap</p>
+            <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>
+              {results[0]?.best ?? "-"}<span className="text-sm" style={{ color: "#849396" }}>s</span>
+            </p>
+          </div>
+          <div className="glass-panel p-5">
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Total Cars</p>
+            <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>{results.length}</p>
+          </div>
+          <div className="glass-panel p-5" style={{ borderLeft: "4px solid #00e5ff" }}>
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#00e5ff" }}>Jani Cars</p>
+            <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>{janiCars.length}</p>
+          </div>
+          <div className="glass-panel p-5" style={{ borderLeft: "4px solid #ff3547" }}>
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#ff3547" }}>Csabi Cars</p>
+            <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>{csabiCars.length}</p>
+          </div>
+        </div>
+
+        {/* Pilots / Compare section */}
+        <div ref={compareRef}>
+          {activeTab === "pilots" && (
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+              <DriverHUD name="Jani" color="#00e5ff" label="Team Leader" results={janiCars} glowClass="glow-cyan" textGlowClass="text-glow-cyan" />
+              <DriverHUD name="Csabi" color="#ff3547" label="Challenger" results={csabiCars} glowClass="glow-red" textGlowClass="text-glow-red" />
+            </section>
+          )}
+          {activeTab === "compare" && (
+            <CompareSection results={results} selectedCars={selectedCars} toggleCompare={toggleCompare} />
+          )}
+        </div>
+
+        {/* Filter Bar */}
+        <div className="glass-panel p-4 mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div className="flex items-center gap-4 w-full md:w-auto">
+            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+              placeholder="SEARCH CAR OR DRIVER..."
+              className="bg-[#1b1b20] border-b border-[#3b494c] focus:border-[#00e5ff] text-sm w-full md:w-64 px-4 py-2 text-[#e4e1e8] placeholder:text-[#849396]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }} />
+            <div className="flex shrink-0" style={{ border: "1px solid #3b494c" }}>
+              {(["all", "Jani", "Csabi"] as const).map((d) => (
+                <button key={d} onClick={() => setDriverFilter(d)}
+                  className="px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors"
+                  style={{
+                    fontFamily: "var(--font-space-grotesk)",
+                    background: driverFilter === d ? (d === "Jani" ? "#00e5ff" : d === "Csabi" ? "#ff3547" : "#00e5ff") : "transparent",
+                    color: driverFilter === d ? (d === "all" ? "#001f24" : d === "Jani" ? "#001f24" : "#fff") : "#849396",
+                  }}>
+                  {d === "all" ? "Mind" : d}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-4 w-full md:w-auto">
+            <select value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)}
+              className="bg-[#1b1b20] border-b border-[#3b494c] text-sm py-2 px-4 text-[#849396] appearance-none"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}>
+              <option value="all">ALL BRANDS</option>
+              {brands.map((b) => <option key={b} value={b}>{b.toUpperCase()}</option>)}
+            </select>
+          </div>
+        </div>
+
+        {/* Results Table Header */}
+        <div className="px-4 sm:px-6 grid grid-cols-12 gap-4 text-[10px] font-black uppercase tracking-[0.2em] mb-4"
+          style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>
+          <div className="col-span-1 text-center">Pos</div>
+          <div className="col-span-5 sm:col-span-4">Machine &amp; Driver</div>
+          <div className="col-span-3 hidden sm:block">Pace Visualization</div>
+          <div className="col-span-6 sm:col-span-4 text-right">Lap Time</div>
+        </div>
+
+        {/* Result count */}
+        <p className="text-[10px] uppercase tracking-wider px-4 mb-3" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>
+          {filtered.length} találat{!showAll && filtered.length > 50 && " · Top 50"}
+        </p>
+
+        {/* Results */}
+        <div className="space-y-3">
+          {displayed.map((r, idx) => (
+            <ResultRow key={`${r.pos}-${r.car}`} result={r} fastestMs={fastestMs} index={idx}
+              isSelected={selectedPositions.includes(r.pos)} onToggleCompare={() => toggleCompare(r.pos)}
+              isExpanded={expandedRow === r.pos} onToggleExpand={() => setExpandedRow(expandedRow === r.pos ? null : r.pos)} />
+          ))}
+        </div>
+
+        {filtered.length > 50 && (
+          <div className="text-center mt-8">
+            <button onClick={() => setShowAll(!showAll)}
+              className="px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] transition-all hover:bg-white hover:text-[#131317]"
+              style={{ fontFamily: "var(--font-space-grotesk)", background: "#353439", color: "#e4e1e8" }}>
+              {showAll ? "Top 50 mutatása" : `Összes mutatása (${filtered.length})`}
+            </button>
+          </div>
+        )}
+      </main>
+
+      {/* Mobile Bottom Nav */}
+      <nav className="fixed bottom-0 w-full flex justify-around items-center h-14 md:hidden z-50"
+        style={{ background: "rgba(19,19,23,0.9)", backdropFilter: "blur(20px)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <button onClick={() => setActiveTab("pilots")} className="flex flex-col items-center py-2"
+          style={{ color: activeTab === "pilots" ? "#00e5ff" : "#849396" }}>
+          <span className="text-lg">&#9776;</span>
+          <span className="text-[9px] uppercase" style={{ fontFamily: "var(--font-space-grotesk)" }}>Lista</span>
+        </button>
+        <button onClick={() => setActiveTab("compare")} className="flex flex-col items-center py-2"
+          style={{ color: activeTab === "compare" ? "#00e5ff" : "#849396" }}>
+          <span className="text-lg">&#8596;</span>
+          <span className="text-[9px] uppercase" style={{ fontFamily: "var(--font-space-grotesk)" }}>Compare</span>
+        </button>
+      </nav>
+    </>
+  );
+}
+
+/* ─── Driver HUD Card ─── */
+
+function DriverHUD({ name, color, label, results, glowClass, textGlowClass }: {
+  name: string; color: string; label: string; results: Result[]; glowClass: string; textGlowClass: string;
+}) {
+  const best = results[0];
+  return (
+    <div className={`glass-panel p-6 sm:p-8 relative overflow-hidden ${glowClass} group`}>
+      <div className="flex flex-col sm:flex-row justify-between items-start mb-6 gap-4">
+        <div>
+          <span className="px-3 py-1 text-[10px] font-black uppercase tracking-tighter inline-block"
+            style={{ background: color, color: name === "Csabi" ? "#fff" : "#001f24" }}>{label}</span>
+          <h3 className="text-4xl sm:text-5xl font-black mt-2 text-white" style={{ fontFamily: "var(--font-orbitron)" }}>{name.toUpperCase()}</h3>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] mt-1" style={{ fontFamily: "var(--font-jetbrains)", color }}>
+            {best?.car ?? "-"}
+          </p>
+        </div>
+        <div className="text-right">
+          <p className="text-xs uppercase mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Session Best</p>
+          <p className={`text-3xl sm:text-5xl font-bold tracking-tighter ${textGlowClass}`}
+            style={{ fontFamily: "var(--font-jetbrains)", color }}>
+            {best?.best ?? "-"}
+          </p>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-4 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div>
+          <p className="text-[10px] uppercase" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Autók</p>
+          <p style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>{results.length}</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Top 10</p>
+          <p style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>
+            {results.filter((r) => r.pos <= 10).length}
+          </p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Átlag</p>
+          <p style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>
+            {results.length > 0 ? `${(results.reduce((s, r) => s + r.bestMs, 0) / results.length / 1000).toFixed(1)}s` : "-"}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
 /* ─── Compare Section ─── */
 
-function CompareSection({
-  results,
-  selectedCars,
-  toggleCompare,
-}: {
-  results: Result[];
-  selectedCars: Result[];
-  toggleCompare: (pos: number) => void;
+function CompareSection({ results, selectedCars, toggleCompare }: {
+  results: Result[]; selectedCars: Result[]; toggleCompare: (pos: number) => void;
 }) {
   return (
-    <div className="mb-8 space-y-4">
-      {/* Car selectors */}
+    <div className="mb-10 space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {[0, 1, 2].map((slot) => (
-          <CarCombobox
-            key={slot}
-            results={results}
-            selected={selectedCars[slot] ?? null}
+          <CarCombobox key={slot} results={results} selected={selectedCars[slot] ?? null}
             onSelect={(r) => toggleCompare(r.pos)}
             onClear={selectedCars[slot] ? () => toggleCompare(selectedCars[slot].pos) : undefined}
-            placeholder={slot === 2 ? "3. autó (opcionális)" : `${slot + 1}. autó kiválasztása...`}
-          />
+            placeholder={slot === 2 ? "3. autó (opcionális)" : `${slot + 1}. autó kiválasztása...`} />
         ))}
       </div>
-
-      {/* Comparison panel */}
       {selectedCars.length >= 2 && <ComparisonPanel cars={selectedCars} />}
     </div>
   );
 }
 
-/* ─── Car Combobox ─── */
+/* ─── Combobox ─── */
 
-function CarCombobox({
-  results,
-  selected,
-  onSelect,
-  onClear,
-  placeholder,
-}: {
-  results: Result[];
-  selected: Result | null;
-  onSelect: (r: Result) => void;
-  onClear?: () => void;
-  placeholder: string;
+function CarCombobox({ results, selected, onSelect, onClear, placeholder }: {
+  results: Result[]; selected: Result | null; onSelect: (r: Result) => void; onClear?: () => void; placeholder: string;
 }) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [highlightIdx, setHighlightIdx] = useState(0);
+  const [hlIdx, setHlIdx] = useState(0);
 
   const filtered = useMemo(() => {
     if (!query) return results.slice(0, 8);
@@ -404,99 +371,58 @@ function CarCombobox({
   }, [results, query]);
 
   useEffect(() => {
-    function handler(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
+    const handler = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  useEffect(() => setHighlightIdx(0), [filtered]);
+  useEffect(() => setHlIdx(0), [filtered]);
 
   function handleKey(e: React.KeyboardEvent) {
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setHighlightIdx((i) => Math.min(i + 1, filtered.length - 1));
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setHighlightIdx((i) => Math.max(i - 1, 0));
-    } else if (e.key === "Enter" && filtered[highlightIdx]) {
-      e.preventDefault();
-      onSelect(filtered[highlightIdx]);
-      setQuery("");
-      setOpen(false);
-    } else if (e.key === "Escape") {
-      setOpen(false);
-    }
+    if (e.key === "ArrowDown") { e.preventDefault(); setHlIdx((i) => Math.min(i + 1, filtered.length - 1)); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); setHlIdx((i) => Math.max(i - 1, 0)); }
+    else if (e.key === "Enter" && filtered[hlIdx]) { e.preventDefault(); onSelect(filtered[hlIdx]); setQuery(""); setOpen(false); }
+    else if (e.key === "Escape") setOpen(false);
   }
 
   if (selected) {
     return (
-      <div
-        className="flex items-center gap-2 px-3 py-2.5 rounded-lg border"
-        style={{ background: "#111118", borderColor: driverColor(selected.driver) + "44" }}
-      >
-        <span className="text-sm font-medium flex-1 truncate" style={{ fontFamily: "var(--font-barlow)", color: "#e8e8ec" }}>
-          #{String(selected.pos).padStart(3, "0")} {selected.car}
+      <div className="glass-panel flex items-center gap-2 px-4 py-3" style={{ borderLeft: `4px solid ${dc(selected.driver)}` }}>
+        <span className="text-xs w-8 text-right shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: "#849396" }}>
+          {String(selected.pos).padStart(2, "0")}
         </span>
-        <span
-          className="text-[10px] px-1.5 py-0.5 rounded-full shrink-0"
-          style={{ background: driverColor(selected.driver) + "22", color: driverColor(selected.driver), fontFamily: "var(--font-barlow-condensed)" }}
-        >
+        <span className="text-sm font-bold flex-1 truncate" style={{ fontFamily: "var(--font-orbitron)", color: "#fff" }}>{selected.car}</span>
+        <span className="text-[10px] px-2 py-0.5 shrink-0 font-black uppercase tracking-wider"
+          style={{ background: dc(selected.driver) + "22", color: dc(selected.driver), fontFamily: "var(--font-jetbrains)" }}>
           {selected.driver || "?"}
         </span>
-        <span className="text-xs shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: "#888" }}>
-          {selected.best}
-        </span>
-        {onClear && (
-          <button onClick={onClear} className="text-xs ml-1 shrink-0" style={{ color: "#555" }}>
-            &#x2715;
-          </button>
-        )}
+        <span className="text-xs shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: "#849396" }}>{selected.best}</span>
+        {onClear && <button onClick={onClear} className="ml-1 text-xs" style={{ color: "#849396" }}>&#x2715;</button>}
       </div>
     );
   }
 
   return (
     <div ref={ref} className="relative">
-      <input
-        ref={inputRef}
-        type="text"
-        value={query}
-        onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
-        onFocus={() => setOpen(true)}
-        onKeyDown={handleKey}
-        placeholder={placeholder}
-        className="w-full px-4 py-2.5 rounded-lg border text-sm"
-        style={{ fontFamily: "var(--font-barlow)", background: "#111118", borderColor: "#2a2a3a", color: "#e8e8ec" }}
-      />
+      <input type="text" value={query} onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
+        onFocus={() => setOpen(true)} onKeyDown={handleKey} placeholder={placeholder}
+        className="w-full px-4 py-3 text-sm bg-[#1b1b20] border-b border-[#3b494c] text-[#e4e1e8] placeholder:text-[#849396]"
+        style={{ fontFamily: "var(--font-space-grotesk)" }} />
       {open && filtered.length > 0 && (
-        <div
-          className="absolute top-full left-0 right-0 mt-1 rounded-lg border overflow-hidden z-40"
-          style={{ background: "#111118", borderColor: "#2a2a3a" }}
-        >
+        <div className="absolute top-full left-0 right-0 mt-1 z-40 overflow-hidden" style={{ background: "#1b1b20", border: "1px solid rgba(255,255,255,0.06)" }}>
           {filtered.map((r, i) => (
-            <button
-              key={r.pos}
-              onClick={() => { onSelect(r); setQuery(""); setOpen(false); }}
-              onMouseEnter={() => setHighlightIdx(i)}
-              className="w-full flex items-center gap-2 px-3 py-2 text-left transition-colors"
-              style={{ background: i === highlightIdx ? "#1a1a24" : "transparent" }}
-            >
-              <span className="text-[10px] w-8 text-right shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: "#444" }}>
-                #{String(r.pos).padStart(3, "0")}
+            <button key={r.pos} onClick={() => { onSelect(r); setQuery(""); setOpen(false); }}
+              onMouseEnter={() => setHlIdx(i)}
+              className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors"
+              style={{ background: i === hlIdx ? "#2a292e" : "transparent" }}>
+              <span className="text-[10px] w-6 text-right shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: "#849396" }}>
+                {String(r.pos).padStart(2, "0")}
               </span>
-              <span className="text-sm flex-1 truncate" style={{ fontFamily: "var(--font-barlow)", color: "#e8e8ec" }}>
-                {r.car}
-              </span>
+              <span className="text-sm flex-1 truncate font-bold" style={{ fontFamily: "var(--font-space-grotesk)", color: "#e4e1e8" }}>{r.car}</span>
               {r.driver && r.driver !== "?" && (
-                <span className="text-[9px] px-1.5 py-0.5 rounded-full shrink-0" style={{ background: driverColor(r.driver) + "22", color: driverColor(r.driver) }}>
-                  {r.driver}
-                </span>
+                <span className="text-[9px] px-2 py-0.5 font-black uppercase" style={{ background: dc(r.driver) + "22", color: dc(r.driver) }}>{r.driver}</span>
               )}
-              <span className="text-xs shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: "#666" }}>
-                {r.best}
-              </span>
+              <span className="text-xs shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: "#849396" }}>{r.best}</span>
             </button>
           ))}
         </div>
@@ -509,73 +435,46 @@ function CarCombobox({
 
 function ComparisonPanel({ cars }: { cars: Result[] }) {
   const fastest = Math.min(...cars.map((c) => c.bestMs));
+  const barColors = ["#00e5ff", "#ff3547", "#ffe16d"];
 
   return (
-    <div
-      className="rounded-xl p-5 sm:p-6 border animate-fade-in"
-      style={{ background: "#111118", border: "1px solid rgba(255,255,255,0.06)" }}
-    >
-      {/* Header: Car names + VS */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-6">
+    <div className="glass-panel p-5 sm:p-8 animate-fade-in">
+      {/* Headers */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8">
         {cars.map((c, i) => (
-          <div key={c.pos} className="flex items-center gap-2">
-            {i > 0 && (
-              <span className="text-xl font-bold mx-2" style={{ fontFamily: "var(--font-orbitron)", color: "#333" }}>
-                VS
-              </span>
-            )}
+          <div key={c.pos} className="flex items-center gap-3">
+            {i > 0 && <span className="text-2xl font-black mx-2" style={{ fontFamily: "var(--font-orbitron)", color: "#353439" }}>VS</span>}
             <div className="text-center">
-              <p className="text-base sm:text-lg font-bold" style={{ fontFamily: "var(--font-barlow)", color: "#e8e8ec" }}>
-                {c.car}
-              </p>
+              <p className="text-lg sm:text-xl font-black" style={{ fontFamily: "var(--font-orbitron)", color: "#fff" }}>{c.car}</p>
               {c.driver && c.driver !== "?" && (
-                <span
-                  className="text-[10px] px-2 py-0.5 rounded-full inline-block mt-1"
-                  style={{ background: driverColor(c.driver) + "22", color: driverColor(c.driver), fontFamily: "var(--font-barlow-condensed)" }}
-                >
-                  {c.driver}
-                </span>
+                <span className="text-[10px] px-3 py-0.5 inline-block mt-1 font-black uppercase tracking-wider"
+                  style={{ background: dc(c.driver), color: c.driver === "Csabi" ? "#fff" : "#001f24" }}>{c.driver}</span>
               )}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Best lap comparison */}
-      <div className="mb-6">
-        <p className="text-[10px] uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#555" }}>
-          Legjobb köridő
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+      {/* Lap times */}
+      <div className="mb-8">
+        <p className="text-[10px] uppercase tracking-[0.2em] mb-4" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Best Lap</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
           {cars.map((c) => {
-            const isFastest = c.bestMs === fastest;
+            const isFast = c.bestMs === fastest;
             const diff = c.bestMs - fastest;
             return (
               <div key={c.pos} className="text-center">
-                <p
-                  className="text-2xl sm:text-4xl font-bold"
-                  style={{
-                    fontFamily: "var(--font-jetbrains)",
-                    color: isFastest ? "#22c55e" : "#888",
-                  }}
-                >
-                  {c.best}
-                </p>
+                <p className={`text-3xl sm:text-5xl font-bold tracking-tighter ${isFast ? "text-glow-cyan" : ""}`}
+                  style={{ fontFamily: "var(--font-jetbrains)", color: isFast ? "#00e5ff" : "#849396" }}>{c.best}</p>
                 {diff > 0 && (
-                  <span
-                    className="text-xs px-2 py-0.5 rounded-full inline-block mt-1"
-                    style={{ background: "#ff354722", color: "#ff3547", fontFamily: "var(--font-jetbrains)" }}
-                  >
+                  <span className="text-xs px-3 py-0.5 inline-block mt-2 font-bold"
+                    style={{ background: "rgba(255,53,71,0.15)", color: "#ff3547", fontFamily: "var(--font-jetbrains)" }}>
                     +{(diff / 1000).toFixed(3)}s
                   </span>
                 )}
-                {isFastest && (
-                  <span
-                    className="text-xs px-2 py-0.5 rounded-full inline-block mt-1"
-                    style={{ background: "#22c55e22", color: "#22c55e", fontFamily: "var(--font-barlow-condensed)" }}
-                  >
-                    GYORSABB
-                  </span>
+                {isFast && (
+                  <span className="text-[10px] px-3 py-0.5 inline-block mt-2 font-black uppercase tracking-wider"
+                    style={{ background: "rgba(0,229,255,0.15)", color: "#00e5ff", fontFamily: "var(--font-space-grotesk)" }}>FASTEST</span>
                 )}
               </div>
             );
@@ -583,83 +482,53 @@ function ComparisonPanel({ cars }: { cars: Result[] }) {
         </div>
       </div>
 
-      {/* Speed bars */}
-      <div className="space-y-2 mb-6">
+      {/* Pace bars */}
+      <div className="space-y-3 mb-8">
         {cars.map((c, i) => {
           const barW = (fastest / c.bestMs) * 100;
-          const colors = ["#00e5ff", "#ff3547", "#a855f7"];
           return (
-            <div key={c.pos} className="flex items-center gap-3">
-              <span className="text-xs w-24 truncate text-right" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#888" }}>
-                {c.car.length > 14 ? c.car.slice(0, 14) + "…" : c.car}
+            <div key={c.pos} className="flex items-center gap-4">
+              <span className="text-xs w-28 truncate text-right font-bold" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>
+                {c.car.length > 16 ? c.car.slice(0, 16) + "…" : c.car}
               </span>
-              <div className="flex-1 h-3 rounded-full overflow-hidden" style={{ background: "#1a1a24" }}>
-                <div
-                  className="speed-bar h-full rounded-full"
-                  style={{ "--bar-width": `${barW}%`, "--delay": `${i * 200}ms`, background: colors[i] } as React.CSSProperties}
-                />
+              <div className="flex-1 h-2 relative" style={{ background: "#353439" }}>
+                <div className="speed-bar h-full absolute"
+                  style={{ "--bar-width": `${barW}%`, "--delay": `${i * 200}ms`, background: barColors[i],
+                    boxShadow: i === 0 ? "0 0 15px rgba(0,229,255,0.6)" : i === 1 ? "0 0 10px rgba(255,53,71,0.4)" : "none" } as React.CSSProperties} />
               </div>
-              <span className="text-xs w-16" style={{ fontFamily: "var(--font-jetbrains)", color: "#888" }}>
-                {c.best}
-              </span>
+              <span className="text-xs w-16" style={{ fontFamily: "var(--font-jetbrains)", color: "#849396" }}>{c.best}</span>
             </div>
           );
         })}
       </div>
 
-      {/* Total comparison if available */}
-      {cars.filter((c) => c.total).length >= 2 && (
-        <div className="mb-6">
-          <p className="text-[10px] uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#555" }}>
-            Total Laptime
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
-            {cars.map((c) => (
-              <div key={c.pos} className="text-center">
-                <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: c.total ? "#e8e8ec" : "#333" }}>
-                  {c.total || "N/A"}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Detail grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+      {/* Stats grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         {cars.map((c) => (
-          <div key={c.pos} className="rounded-lg p-3" style={{ background: "#0d0d14" }}>
-            <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#444" }}>
-              Pozíció
-            </p>
-            <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e8e8ec" }}>
-              #{String(c.pos).padStart(3, "0")}
+          <div key={c.pos} className="p-3" style={{ background: "#0e0e12" }}>
+            <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Pozíció</p>
+            <p className="text-xl font-black" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>
+              {String(c.pos).padStart(2, "0")}
             </p>
           </div>
         ))}
         {cars.length === 2 && (
           <>
-            <div className="rounded-lg p-3" style={{ background: "#0d0d14" }}>
-              <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#444" }}>
-                Különbség
-              </p>
-              <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#ffd600" }}>
+            <div className="p-3" style={{ background: "#0e0e12" }}>
+              <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Különbség</p>
+              <p className="text-xl font-black" style={{ fontFamily: "var(--font-jetbrains)", color: "#ffe16d" }}>
                 {((Math.abs(cars[0].bestMs - cars[1].bestMs)) / 1000).toFixed(3)}s
               </p>
             </div>
-            <div className="rounded-lg p-3" style={{ background: "#0d0d14" }}>
-              <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#444" }}>
-                Pozíció kül.
-              </p>
-              <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#a855f7" }}>
+            <div className="p-3" style={{ background: "#0e0e12" }}>
+              <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Helykül.</p>
+              <p className="text-xl font-black" style={{ fontFamily: "var(--font-jetbrains)", color: "#c3f5ff" }}>
                 {Math.abs(cars[0].pos - cars[1].pos)} hely
               </p>
             </div>
-            <div className="rounded-lg p-3" style={{ background: "#0d0d14" }}>
-              <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#444" }}>
-                Százalék
-              </p>
-              <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#00e5ff" }}>
+            <div className="p-3" style={{ background: "#0e0e12" }}>
+              <p className="text-[9px] uppercase tracking-wider mb-1" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Százalék</p>
+              <p className="text-xl font-black" style={{ fontFamily: "var(--font-jetbrains)", color: "#00e5ff" }}>
                 {((Math.abs(cars[0].bestMs - cars[1].bestMs) / Math.min(cars[0].bestMs, cars[1].bestMs)) * 100).toFixed(1)}%
               </p>
             </div>
@@ -670,163 +539,117 @@ function ComparisonPanel({ cars }: { cars: Result[] }) {
   );
 }
 
-/* ─── Subcomponents ─── */
+/* ─── Result Row ─── */
 
-function DriverCard({ name, color, bestTime, bestCar, totalCars }: { name: string; color: string; bestTime: string; bestCar: string; totalCars: number }) {
-  return (
-    <div className="rounded-xl p-5 border" style={{ background: "#111118", borderColor: color + "33" }}>
-      <div className="flex items-center gap-2 mb-3">
-        <div className="w-3 h-3 rounded-full" style={{ background: color }} />
-        <h3 className="text-lg font-bold tracking-wider" style={{ fontFamily: "var(--font-orbitron)", color }}>{name}</h3>
-      </div>
-      <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color }}>{bestTime}</p>
-      <p className="text-xs mt-1 truncate" style={{ color: "#666" }}>{bestCar}</p>
-      <p className="text-xs mt-2" style={{ color: "#555" }}>
-        <span className="font-semibold" style={{ color: "#888" }}>{totalCars}</span> autó tesztelve
-      </p>
-    </div>
-  );
-}
-
-function StatCard({ label, value, sub, accent }: { label: string; value: string; sub: string; accent: string }) {
-  return (
-    <div className="rounded-xl p-4 border" style={{ background: "#111118", borderColor: "#1a1a24" }}>
-      <p className="text-[10px] uppercase tracking-wider mb-2" style={{ fontFamily: "var(--font-barlow-condensed)", color: "#555" }}>{label}</p>
-      <p className="text-xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: accent }}>{value}</p>
-      <p className="text-[10px] mt-1 truncate" style={{ color: "#444" }}>{sub}</p>
-    </div>
-  );
-}
-
-function ResultRow({
-  result,
-  fastestMs,
-  index,
-  isSelected,
-  onToggleCompare,
-  isExpanded,
-  onToggleExpand,
-}: {
-  result: Result;
-  fastestMs: number;
-  index: number;
-  isSelected: boolean;
-  onToggleCompare: () => void;
-  isExpanded: boolean;
-  onToggleExpand: () => void;
+function ResultRow({ result, fastestMs, index, isSelected, onToggleCompare, isExpanded, onToggleExpand }: {
+  result: Result; fastestMs: number; index: number; isSelected: boolean;
+  onToggleCompare: () => void; isExpanded: boolean; onToggleExpand: () => void;
 }) {
   const isTop3 = result.pos <= 3;
   const isFastest = result.pos === 1;
   const barWidth = (fastestMs / result.bestMs) * 100;
-  const dc = driverColor(result.driver);
+  const color = dc(result.driver);
+  const diff = result.bestMs - fastestMs;
 
   return (
     <div>
       <div
-        className="animate-row flex items-center gap-2 sm:gap-4 rounded-lg px-2 sm:px-4 py-2.5 transition-colors hover:bg-[#1a1a24] group cursor-pointer"
+        className={`animate-row glass-panel p-3 sm:p-4 grid grid-cols-12 gap-2 sm:gap-4 items-center relative cursor-pointer transition-all group
+          ${isTop3 ? "glow-gold" : ""} ${isSelected ? "!border-[#a855f7] !border-opacity-50" : ""}`}
         style={{
           "--row-delay": `${Math.min(index * 30, 1500)}ms`,
-          background: isSelected ? "#111118" : isTop3 ? "#0f0f18" : "transparent",
-          borderLeft: isSelected ? "3px solid #a855f7" : isTop3 ? "3px solid #ffd600" : "3px solid transparent",
+          borderLeft: `4px solid ${isSelected ? "#a855f7" : isTop3 ? (result.driver === "Csabi" ? "#ff3547" : "#00e5ff") : "#353439"}`,
+          opacity: isTop3 ? 1 : 0.85,
         } as React.CSSProperties}
         onClick={onToggleExpand}
       >
-        {/* Compare checkbox */}
-        <button
-          onClick={(e) => { e.stopPropagation(); onToggleCompare(); }}
-          className="w-5 h-5 rounded border flex items-center justify-center shrink-0 opacity-30 group-hover:opacity-100 transition-opacity"
-          style={{
-            borderColor: isSelected ? "#a855f7" : "#2a2a3a",
-            background: isSelected ? "#a855f722" : "transparent",
-            color: isSelected ? "#a855f7" : "#555",
-          }}
-          title="Összehasonlításhoz hozzáadás"
-        >
-          {isSelected ? "✓" : ""}
+        {/* Compare checkbox - visible on hover */}
+        <button onClick={(e) => { e.stopPropagation(); onToggleCompare(); }}
+          className="absolute left-[-1px] top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
+          style={{ background: isSelected ? "#a855f7" : "#353439", color: isSelected ? "#fff" : "#849396" }}
+          title="Összehasonlítás">
+          <span className="text-[10px]">{isSelected ? "✓" : "+"}</span>
         </button>
 
         {/* Position */}
-        <span className="w-10 sm:w-12 text-right shrink-0" style={{ fontFamily: "var(--font-jetbrains)", fontSize: "0.75rem", color: isTop3 ? "#ffd600" : "#444" }}>
-          #{String(result.pos).padStart(3, "0")}
-        </span>
+        <div className="col-span-1 text-center">
+          <span className={`font-black text-lg sm:text-2xl ${isTop3 ? "italic" : ""}`}
+            style={{ fontFamily: "var(--font-jetbrains)", color: isTop3 ? "#ffe16d" : "#849396" }}>
+            {String(result.pos).padStart(2, "0")}
+          </span>
+        </div>
 
-        {/* Car name */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium truncate" style={{ fontFamily: "var(--font-barlow)", color: isTop3 ? "#ffd600" : "#e8e8ec" }}>
-              {result.car}
+        {/* Car + Driver */}
+        <div className="col-span-5 sm:col-span-4 flex items-center gap-3">
+          <div className="hidden sm:flex w-10 h-10 items-center justify-center shrink-0"
+            style={{ background: color + "15", border: `1px solid ${color}30` }}>
+            <span className="text-xs font-black" style={{ color, fontFamily: "var(--font-jetbrains)" }}>
+              {result.driver ? result.driver[0] : "?"}
             </span>
-            {isFastest && (
-              <span className="text-[9px] px-1.5 py-0.5 rounded-full font-bold shrink-0" style={{ fontFamily: "var(--font-barlow-condensed)", background: "#a855f7", color: "#fff" }}>
-                FASTEST
-              </span>
-            )}
           </div>
-          <div className="hidden sm:block mt-1">
-            <div className="h-1 rounded-full bg-[#1a1a24] overflow-hidden">
-              <div
-                className="speed-bar h-full rounded-full"
-                style={{
-                  "--bar-width": `${barWidth}%`,
-                  "--delay": `${Math.min(index * 30 + 200, 1700)}ms`,
-                  background: result.driver === "Jani" ? "linear-gradient(90deg, #00e5ff88, #00e5ff)" : result.driver === "Csabi" ? "linear-gradient(90deg, #ff354788, #ff3547)" : "linear-gradient(90deg, #55555588, #555)",
-                } as React.CSSProperties}
-              />
-            </div>
+          <div className="min-w-0">
+            <p className="font-bold text-sm sm:text-base text-white leading-tight truncate" style={{ fontFamily: "var(--font-orbitron)" }}>
+              {result.car}
+            </p>
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] mt-0.5" style={{ fontFamily: "var(--font-jetbrains)", color }}>
+              {result.driver || "N/A"}
+            </p>
           </div>
         </div>
 
-        {/* Driver badge */}
-        {result.driver && result.driver !== "?" && (
-          <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold shrink-0" style={{ fontFamily: "var(--font-barlow-condensed)", background: dc + "22", color: dc, border: `1px solid ${dc}44` }}>
-            {result.driver}
-          </span>
-        )}
+        {/* Pace bar */}
+        <div className="col-span-3 hidden sm:block">
+          <div className="h-1.5 w-full relative" style={{ background: "#353439" }}>
+            <div className="speed-bar absolute h-full"
+              style={{
+                "--bar-width": `${barWidth}%`, "--delay": `${Math.min(index * 30 + 200, 1700)}ms`,
+                background: color,
+                boxShadow: isFastest ? `0 0 15px ${color}99` : "none",
+              } as React.CSSProperties} />
+          </div>
+        </div>
 
-        {/* Best time */}
-        <span className="text-sm sm:text-base font-bold shrink-0" style={{ fontFamily: "var(--font-jetbrains)", color: isTop3 ? "#ffd600" : "#e8e8ec" }}>
-          {result.best}
-        </span>
-
-        {/* Total */}
-        <span className="hidden sm:inline text-xs shrink-0 w-16 text-right" style={{ fontFamily: "var(--font-jetbrains)", color: "#444" }}>
-          {result.total || "—"}
-        </span>
+        {/* Lap Time */}
+        <div className="col-span-6 sm:col-span-4 text-right">
+          <p className="font-black text-lg sm:text-2xl" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>
+            {result.best}
+          </p>
+          <p className="text-[10px] tracking-wider" style={{ fontFamily: "var(--font-jetbrains)", color: isFastest ? "#00e5ff" : "#ff3547" }}>
+            {isFastest ? "FASTEST" : `+${(diff / 1000).toFixed(3)}`}
+          </p>
+        </div>
       </div>
 
       {/* Expanded detail */}
       {isExpanded && (
-        <div className="ml-8 sm:ml-16 mr-2 mb-2 p-3 rounded-lg" style={{ background: "#0d0d14", border: "1px solid #1a1a24" }}>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="ml-4 sm:ml-8 mr-2 mb-1 p-4 animate-fade-in" style={{ background: "#0e0e12", borderLeft: `2px solid ${color}44` }}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div>
-              <p className="text-[9px] uppercase tracking-wider" style={{ color: "#444", fontFamily: "var(--font-barlow-condensed)" }}>Best Lap</p>
-              <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e8e8ec" }}>{result.best}</p>
+              <p className="text-[9px] uppercase tracking-wider" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Best Lap</p>
+              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>{result.best}</p>
             </div>
             <div>
-              <p className="text-[9px] uppercase tracking-wider" style={{ color: "#444", fontFamily: "var(--font-barlow-condensed)" }}>Total</p>
-              <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: result.total ? "#e8e8ec" : "#333" }}>{result.total || "N/A"}</p>
+              <p className="text-[9px] uppercase tracking-wider" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Total</p>
+              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: result.total ? "#e4e1e8" : "#353439" }}>{result.total || "N/A"}</p>
             </div>
             <div>
-              <p className="text-[9px] uppercase tracking-wider" style={{ color: "#444", fontFamily: "var(--font-barlow-condensed)" }}>Pilóta</p>
-              <p className="text-lg font-bold" style={{ fontFamily: "var(--font-barlow)", color: dc }}>{result.driver || "?"}</p>
+              <p className="text-[9px] uppercase tracking-wider" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Pilóta</p>
+              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-space-grotesk)", color }}>{result.driver || "?"}</p>
             </div>
             <div>
-              <p className="text-[9px] uppercase tracking-wider" style={{ color: "#444", fontFamily: "var(--font-barlow-condensed)" }}>Pozíció</p>
-              <p className="text-lg font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e8e8ec" }}>#{String(result.pos).padStart(3, "0")}</p>
+              <p className="text-[9px] uppercase tracking-wider" style={{ fontFamily: "var(--font-space-grotesk)", color: "#849396" }}>Pozíció</p>
+              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-jetbrains)", color: "#e4e1e8" }}>{String(result.pos).padStart(2, "0")}</p>
             </div>
           </div>
-          <button
-            onClick={(e) => { e.stopPropagation(); onToggleCompare(); }}
-            className="mt-3 px-4 py-1.5 rounded-lg text-xs font-medium transition-all"
+          <button onClick={(e) => { e.stopPropagation(); onToggleCompare(); }}
+            className="mt-4 px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all"
             style={{
-              fontFamily: "var(--font-barlow-condensed)",
-              background: isSelected ? "#a855f722" : "#1a1a24",
-              color: isSelected ? "#a855f7" : "#00e5ff",
-              border: "1px solid",
-              borderColor: isSelected ? "#a855f744" : "#2a2a3a",
-            }}
-          >
-            {isSelected ? "Eltávolítás az összehasonlításból" : "Összehasonlítás ezzel"}
+              fontFamily: "var(--font-space-grotesk)",
+              background: isSelected ? "rgba(168,85,247,0.15)" : "linear-gradient(135deg, #c3f5ff, #00e5ff)",
+              color: isSelected ? "#a855f7" : "#001f24",
+              border: isSelected ? "1px solid rgba(168,85,247,0.3)" : "none",
+            }}>
+            {isSelected ? "Eltávolítás" : "Összehasonlítás ezzel"}
           </button>
         </div>
       )}

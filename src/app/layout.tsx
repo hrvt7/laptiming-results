@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron, Barlow, Barlow_Condensed, JetBrains_Mono } from "next/font/google";
+import { Orbitron, Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -8,17 +8,16 @@ const orbitron = Orbitron({
   display: "swap",
 });
 
-const barlow = Barlow({
-  variable: "--font-barlow",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "500", "700"],
   display: "swap",
 });
 
@@ -30,17 +29,17 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://laptiming-results.vercel.app"),
-  title: "Laptiming Results — Kakucs Ring",
+  title: "LAPTIMING | KAKUCS RING",
   description: "342 autó körideje a Kakucs Ringen. Jani vs Csabi.",
   openGraph: {
-    title: "Laptiming Results — Kakucs Ring",
+    title: "LAPTIMING | KAKUCS RING",
     description: "342 autó körideje a Kakucs Ringen. Jani vs Csabi.",
     type: "website",
     locale: "hu_HU",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laptiming Results — Kakucs Ring",
+    title: "LAPTIMING | KAKUCS RING",
     description: "342 autó körideje a Kakucs Ringen. Jani vs Csabi.",
   },
 };
@@ -53,9 +52,11 @@ export default function RootLayout({
   return (
     <html
       lang="hu"
-      className={`${orbitron.variable} ${barlow.variable} ${barlowCondensed.variable} ${jetbrainsMono.variable}`}
+      className={`dark ${orbitron.variable} ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen grid-bg antialiased">{children}</body>
+      <body className="min-h-screen bg-[#08080c] text-[#e4e1e8] font-[family-name:var(--font-inter)] antialiased selection:bg-[#00e5ff] selection:text-[#001f24]">
+        {children}
+      </body>
     </html>
   );
 }
