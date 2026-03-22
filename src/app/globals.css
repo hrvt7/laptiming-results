@@ -59,6 +59,22 @@ body {
   animation-delay: var(--row-delay, 0ms);
 }
 
+/* Comparison panel fade-in */
+@keyframes fade-in-slide {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-slide 0.5s ease-out forwards;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
